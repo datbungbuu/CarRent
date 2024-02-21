@@ -46,13 +46,16 @@
 									<thead>
 									    <tr>
 									      <th scope="col">Biển Số </th>
+									      <th scope="col">Tên xe</th>
 									      <th scope="col">Hãng xe</th>
 									      <th scope="col">Tên Loại</th>
 									      <th scope="col">Giá thuê</th>
 									      <th scope="col">Số chỗ</th>
+									       <th scope="col">Ngày Đăng Kiểm</th>
 									      <th scope="col">Truyền động</th>
 									      <th scope="col">Nhiên Liệu</th>
 									      <th scope="col">Nhiêu liệu tiêu hao</th>
+									      <th scope="col">Tiện Nghi</th>
 									      <th scope="col">Địa điểm</th>
 									      <th scope="col">Trạng thái hoạt đọng</th>
 									      <th scope="col"><i class="fa-solid fa-gear"></i></th>
@@ -62,14 +65,17 @@
 									<c:forEach items="${lscar}" var="item">
 									    <tr>
 									      <td>${item.bienSo}</td>
-										  <td>${item.hangXe}</td>
-										  <td>${item.tenLoai}</td>
-										  <td>${item.giaXe}</td>
+									      <td>${item.tenXe}</td>
+										  <td>${item.hangXe.tenHang}</td>
+										  <td>${item.loaiXe.tenLoai}</td> 
+										  <td>${item.giaThue}</td>
 										  <td>${item.soCho}</td>
+										  <td>${item.ngayDangKiem}</td>
 										  <td>${item.truyenDong}</td>
 										  <td>${item.nhienLieu} </td>
 										  <td>${item.nlTieuHao}lit/100km</td>
-										  <td>${item.diaDiem}</td>
+										  <td>${item.tienNghi}</td>
+										   <td>${item.truSo.huyen}</td> 
 										  <td>${item.trangThai? 'Đang cho thuê' : 'Còn Trống' }</td>
 									      <td> <a href="/car/edit/${item.bienSo }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
 									    </tr>

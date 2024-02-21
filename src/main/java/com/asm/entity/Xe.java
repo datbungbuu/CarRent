@@ -31,16 +31,27 @@ public class Xe {
 	private String tenXe;
 
 	// số chỗ
-	@Column(name = "socho")
-	private Integer soCho;
-
+	
 	// giá thuê theo ngày
 	@Column(name = "giathue")
 	private Double giaThue;
 
 	// các đặc điểm như Truyền động: Số tự động, nhiên liệu: Điện, nhiên liệu tiêu hao: 9 lít/100km
-	@Column(name = "dacdiem")
-	private String dacDiem;
+//	@Column(name = "dacdiem")
+//	private String dacDiem;
+	
+	@Column(name = "socho")
+	private Integer soCho;
+
+	@Column(name = "truyendong")
+	private String truyenDong;
+	
+	@Column(name = "nhienlieu")
+	private String nhienLieu;
+	
+	@Column (name = "nttieuhao")
+	private String nlTieuHao;
+	
 
 	// các tiện nghi như: bản đồ, bluetooth, camera hành trình, ETC, ...
 	@Column(name = "tiennghi")

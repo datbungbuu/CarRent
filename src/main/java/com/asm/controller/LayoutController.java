@@ -1,5 +1,9 @@
 package com.asm.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,33 +18,73 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.asm.dao.CarDao;
+
+import com.asm.dao.HangXeDAO;
+import com.asm.dao.LoaiXeDAO;
+import com.asm.dao.TruSoDAO;
+import com.asm.dao.XeDAO;
 import com.asm.entity.Car;
+import com.asm.entity.HangXe;
+import com.asm.entity.LoaiXe;
+import com.asm.entity.TruSo;
+import com.asm.entity.Xe;
 
-import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 
 
 
 @Controller
 public class LayoutController {
-	@Autowired
-	CarDao xedao;
+//	@Autowired
+//	CarDao xedao;
 	
-	public void ClearForm(@ModelAttribute("carmodel") Car car) {
+	@Autowired
+	XeDAO xedao;
+	
+	@Autowired
+	HangXeDAO hangxedao;
+	
+	@Autowired
+	LoaiXeDAO loaixedao;
+	
+	@Autowired
+	TruSoDAO trusodao;
+	
+	SimpleDateFormat sm = new SimpleDateFormat("MM/dd/yyyy");
+	
+	public void ClearForm(@ModelAttribute("carmodel") Xe car) {
 		car.setBienSo("");
-		car.setHangXe("Tất Cả");
-		car.setTenLoai("");
-		car.setGiaXe(0.0);
-		car.setNlTieuHao(0);
-		car.setDiaDiem("");
+		car.setNgayDangKiem(null);
+		car.setTenXe("");
+		car.setGiaThue(null);
 		car.setMoTa("");
+	}
+	
+//	hàng xe
+	@ModelAttribute("hangXes")
+	public List<HangXe> gethangxe1(){
+		List<HangXe> listhangxe = hangxedao.findAll();
+		return listhangxe;
+	}
+//	loại xe
+	@ModelAttribute("loaiXes")
+	public List<LoaiXe> getloaixe1(){
+		List<LoaiXe> listloaixe = loaixedao.findAll();
+		return listloaixe;
+	}
+	
+//	trụ sở 
+	@ModelAttribute("truSos")
+	public List<TruSo> gettrusos(){
+		List<TruSo> listtruso = trusodao.findAll();
+		return listtruso;
 	}
 	
 	@RequestMapping("car/home")
@@ -52,53 +96,49 @@ public class LayoutController {
 	@GetMapping("car/list")
 	public String listCar(Model model) {
 		Car car = new Car();
-		List<Car> cars = xedao.findAll();
+		List<Xe> cars = xedao.findAll();
 		model.addAttribute("lscar",cars);
 		return "listcar";
 	}
 	
-	/*
-	 * @GetMapping("/car/page") public String phantrang(Model model
-	 * , @RequestParam("p") Optional<Integer> p) {
-	 * 
-	 * Pageable page = PageRequest.of(p.orElse(0), 2); model.addAttribute("lscar" ,
-	 * xedao.findAll(page));
-	 * 
-	 * return "listcar"; }
-	 */
-	
+
 	@GetMapping("car/add")
-	public String indexadd(Model model, @ModelAttribute("carmodel") Car car ) {
+	public String indexadd(Model model, @ModelAttribute("carmodel") Xe car ) {
 		
 		return "addcar";
 	}
 	
 	
-	@GetMapping("/car/sort")
-	public String sortPrice(Model model , @RequestParam("field") Optional<String> field) {
-		Sort sort = Sort.by(Direction.DESC , field.orElse("giaXe"));
-		model.addAttribute("field" , field.orElse("giaXe").substring(0,1).toUpperCase() + field.orElse("giaXe").substring(1 , field.orElse("giaXe").length() ));
-		model.addAttribute("lscar" , xedao.findAll(sort));
-		
-		return "listcar";
-	}
 	
+	
+//	@GetMapping("/car/sort")
+//	public String sortPrice(Model model , @RequestParam("field") Optional<String> field) {
+//		Sort sort = Sort.by(Direction.DESC , field.orElse("giaXe"));
+//		model.addAttribute("field" , field.orElse("giaXe").substring(0,1).toUpperCase() + field.orElse("giaXe").substring(1 , field.orElse("giaXe").length() ));
+//		model.addAttribute("lscar" , xedao.findAll(sort));
+//		
+//		return "listcar";
+//	}
+//	
 	@GetMapping("/car/edit/{bienSo}")
-	public String editCar(Model model , @PathVariable("bienSo") String bienSo , @ModelAttribute("carmodel") Car car) {
+	public String editCar(Model model , @PathVariable("bienSo") String bienSo , @ModelAttribute("carmodel") Xe car) {
 		if(xedao.findById(car.getBienSo()).isEmpty()) {
 			return "redirect: /listcar";
 		}else {
-			Car cars = xedao.findById(bienSo).get();
+			Xe cars = xedao.findById(bienSo).get();
 			car.setBienSo(cars.getBienSo());
+			car.setTenXe(cars.getTenXe());
 			car.setHangXe(cars.getHangXe());
-			car.setTenLoai(cars.getTenLoai());
-			car.setGiaXe(cars.getGiaXe());
+			car.setLoaiXe(cars.getLoaiXe());
+			car.setGiaThue(cars.getGiaThue());
 			car.setSoCho(cars.getSoCho());
+			car.setNgayDangKiem(cars.getNgayDangKiem());
 			car.setTruyenDong(cars.getTruyenDong());
 			car.setNhienLieu(cars.getNhienLieu());
 			car.setNlTieuHao(cars.getNlTieuHao());
-			car.setDiaDiem(cars.getDiaDiem());
-			car.setTrangThai(cars.isTrangThai());
+			car.setTienNghi(cars.getTienNghi());
+			car.setTruSo(cars.getTruSo());
+			car.setTrangThai(cars.getTrangThai());
 			car.setImgDauXe(cars.getImgDauXe());
 			car.setImgSuonTXe(cars.getImgSuonTXe());
 			car.setImgSuonPXe(cars.getImgSuonPXe());
@@ -111,7 +151,7 @@ public class LayoutController {
 	}
 	
 	@PostMapping("/car/create")
-	public String addCar(Model model,  @ModelAttribute("carmodel") Car car) {
+	public String addCar(Model model,  @ModelAttribute("carmodel") Xe car) {
 		
 		if(!xedao.existsById(car.getBienSo())){
 			xedao.save(car);
@@ -123,9 +163,9 @@ public class LayoutController {
 		
 		return "addcar";
 	}
-	
+//	
 	@PostMapping("/car/update")
-	public String updateCar(Model model, @ModelAttribute("carmodel") Car car ) {
+	public String updateCar(Model model, @ModelAttribute("carmodel") Xe car ) {
 		
 		if(xedao.existsById(car.getBienSo())){
 			xedao.save(car);
@@ -137,20 +177,23 @@ public class LayoutController {
 		
 		return "addcar";
 	}
-	@PostMapping("/car/delete")
-	public String deleteCar(Model model, @ModelAttribute("carmodel") Car car ) {
-		
-		if(xedao.existsById(car.getBienSo())){
-			xedao.deleteById(car.getBienSo());
-			ClearForm(car);
-			System.out.println("xoá thành công");
-		}else {
-//			throw new RuntimeException("id này không tồn tại");
-			System.out.println("id này không tồn tại");
-		}
-		
-		return "addcar";
-	}
+	
+	
+//	@PostMapping("/car/delete")
+//	public String deleteCar(Model model, @ModelAttribute("carmodel") Xe car ) {
+//		
+//		if(xedao.existsById(car.getBienSo())){
+//			car.setNgayDangKiem(null);
+//			xedao.deleteById(car.getBienSo());
+//			//ClearForm(car);
+//			System.out.println("xoá thành công");
+//		}else {
+////			throw new RuntimeException("id này không tồn tại");
+//			System.out.println("id này không tồn tại");
+//		}
+//		
+//		return "addcar";
+//	}
 	
 	
 }

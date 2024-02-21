@@ -55,52 +55,57 @@
 										</div>
 										<div class="col-xl-6">
 										<h2 class="text-center">Thông tin xe</h2>
-											<div class="mb-3">
+										<div class="row">
+											<div class="col-sm-6"> 
+												<div class="mb-3">
 											    <label class="form-label">Biển Số</label>
 											    <form:input type="text" class="form-control" path="bienSo"/>
 											    <!-- <input type="text" class="form-control" name="id" > -->
+											    </div>
 											 </div>	
 											 
+											 <div class="col-sm-6"> 
+												<div class="mb-3">
+											    <label class="form-label">Tên Xe</label>
+											    <form:input type="text" class="form-control" path="tenXe"/>
+											    <!-- <input type="text" class="form-control" name="id" > -->
+											    </div>
+											 </div>	
+											 
+											 
+											 </div>
 											 <!-- hang xe -->
 											 <div class="row">
 											 	<div class="col-sm-6">
 											 	 <div class="mb-3">
-											    <label class="form-label">Hãng Xe</label>
-													   <%--  <select class="form-select">
-														  <option value="Ford">Ford</option>
-														  <option value="VinFast">VinFast</option>
-														  <option value="BMW">BMW</option>
-														  <option value="MAZDA">MAZDA</option>
-														  <option value="HYUNDAI">HYUNDAI</option>
-														  <option value="MER">MER</option>
-														</select> --%>
-													<form:select path="hangXe"  class="form-select" >
-														<form:option  value="Tất Cả"> <label>Tất cả</label> </form:option>
-														<form:option value="Ford">Ford</form:option>
-														<form:option value="VinFast">VinFast</form:option>
-														<form:option value="BMW">BMW</form:option>
-														<form:option value="MAZDA">MAZDA</form:option>
-														<form:option value="HYUNDAI">HYUNDAI</form:option>
-														
-													</form:select>
+											   <form:label class= "form-lable" path="hangXe.maHX">Hãng Xe</form:label>
+												    <form:select class="form-select" path="hangXe.maHX">
+												    	<form:options items="${hangXes}" itemValue="maHX" itemLabel="tenHang"/>
+												    </form:select>
 													<%-- <form:errors path="hangXe" class="text-danger" /> --%>
 													
 											 </div>
 											 	</div>
 											 	<div class="col-sm-6">
 												 	<div class="mb-3">
-												    <label class="form-label">Tên Loại</label>
-												    <!-- <input type="text" class="form-control" name="href" > -->
-												    <form:input path="tenLoai" class="form-control"/>
-												    <%-- <form:errors path="tenLoai" class="text-danger" /> --%>
+												    <form:label class="form-lable" path="loaiXe.maLX">Tên Loại</form:label>
+												    <form:select class="form-select" path="loaiXe.maLX">
+												    	<form:options items="${loaiXes}" itemValue="maLX" itemLabel="tenLoai"/>
+												    </form:select>
 												 	</div>
 											 	</div>				
-											 </div>										 											 											
+											 </div>
+											 			
+											 <!-- Ngay dang kiem -->
+											 <div class="mb3">
+											 	<form:label class="form-lable" path="">Ngày Đăng Kiểm</form:label>
+											 	<form:input type="text" class="form-control" path="ngayDangKiem"/>
+											 </div>							 											 											
 			 
 											 <div class="mb-3">
 											    <label class="form-label">Giá Thuê</label>
 											   <!--  <input type="text" class="form-control" name="poster" > -->
-											    <form:input path="giaXe" class="form-control"/>
+											    <form:input path="giaThue" class="form-control"/>
 											 </div>
 											 
 											 <div class="row">
@@ -108,17 +113,17 @@
 											 		  <div class="mb-3 ">
 											    <label class="form-label">Số Chỗ</label> <br>
 											     <div class="form-check form-check-inline">
-											   	 <form:radiobutton path="soCho" value="4 chô~" delimiter="" class="form-check-input checked"/>
+											   	 <form:radiobutton path="soCho" value="4" delimiter="" class="form-check-input checked"/>
 											   	 
 												  <!-- <input class="form-check-input" type="radio" name="socho"  value="4 chỗ"> -->
 												  <label class="form-check-label" >4 chỗ</label>
 												</div> 				
 											<div class="form-check form-check-inline">
-											  <form:radiobutton path="soCho" value="5 chô~" delimiter="" class="form-check-input checked"/>
+											  <form:radiobutton path="soCho" value="5" delimiter="" class="form-check-input checked"/>
 											  <label class="form-check-label" >5 chỗ</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <form:radiobutton path="soCho" value="7 chô~" delimiter="" class="form-check-input checked"/>
+											  <form:radiobutton path="soCho" value="7" delimiter="" class="form-check-input checked"/>
 											  <label class="form-check-label" >7 chỗ</label>
 											</div>
 											 </div>
@@ -168,15 +173,30 @@
 											 </div>
 											 
 											  
-											 
-											  <div class="mb-3">
-											    <label class="form-label">Địa Điểm</label>
-											    <!-- <input type="text" class="form-control" name="poster" > -->
-											    <form:input type="text" path="diaDiem" class="form-control" />
+											 <div class="row">
+											 	<div class="col-sm-6">
+												 	<div class="mb-3">
+												    <label class="form-label">Trụ Sở</label>
+												    <!-- <input type="text" class="form-control" name="poster" > -->
+												   <form:select class="form-select" path="truSo.maTS">
+												    	<form:options items="${truSos}" itemValue="maTS" itemLabel="huyen"/>
+												    </form:select>
+													 </div>
+											 	</div>
+											 	
+											 	<div class="col-sm-6">
+												 	<div class="mb-3">
+												    <label class="form-label">Tiện Ích</label>
+												    <!-- <input type="text" class="form-control" name="poster" > -->
+												    <form:input type="text" path="tienNghi" class="form-control" />
+													 </div>
+											 	</div>
+											 	
 											 </div>
 											 
 											 
-											 <div class="mb-3 ">
+											 
+											 <div class="">
 											   <label class="form-label">Trạng Thái Hoạt Động</label> <br>
 											   	<div class="form-check">
 												  <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"> -->
@@ -196,7 +216,7 @@
 										<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 										  <button formaction="/car/create"  class="btn btn-outline-success me-md-2" type="submit">CREATE</button>
 										  <button formaction="/car/update" class="btn btn-outline-warning" type="submit">UPDATE</button>
-										  <button formaction="/car/delete" class="btn btn-outline-danger" type="submit">DELETE</button>
+										  <!-- <button formaction="/car/delete" class="btn btn-outline-danger" type="submit">DELETE</button> -->
 										  <!-- <button formaction="" class="btn btn-outline-primary" type="submit">RESET</button> -->
 										</div>
 									</div>
