@@ -1,12 +1,10 @@
 package com.asm.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,44 +25,9 @@ public class DetailCarController {
 		Xe xe = xeService.getInfoXe(id);
 		int numberOfSeats = xe.getSoCho();
 
-		String properties = xe.getDacDiem();
-
-		String transmission = null;
-		String fuelType = null;
-		String fuelConsumption = null;
-
-		// Tách chuỗi thành mảng các phần tử
-		String[] elements = properties.split(";");
-
-		// Khai báo danh sách cho cặp khóa-giá trị
-		List<String[]> keyValueList = new ArrayList<>();
-
-		// Xử lý từng phần tử của mảng
-		for (String element : elements) {
-			// Tách mỗi phần tử thành mảng dựa trên dấu hai chấm
-			String[] keyValue = element.split(":");
-			if (keyValue.length == 2) {
-				// Lấy giá trị sau dấu hai chấm và loại bỏ khoảng trắng ở đầu và cuối
-				String key = keyValue[0].trim();
-				String value = keyValue[1].trim();
-
-				// Thêm cặp khóa-giá trị vào danh sách
-				keyValueList.add(new String[] { key, value });
-			}
-		}
-
-		// Lấy cặp khóa-giá trị
-		for (String[] keyValue : keyValueList) {
-			if (keyValue[0].equalsIgnoreCase("Truyền động")) {
-				transmission = keyValue[1];
-			}
-			if (keyValue[0].equalsIgnoreCase("Nhiên liệu")) {
-				fuelType = keyValue[1];
-			}
-			if (keyValue[0].equalsIgnoreCase("Nhiên liệu tiêu hao")) {
-				fuelConsumption = keyValue[1];
-			}
-		}
+		String transmission = xe.getTruyenDong();
+		String fuelType = xe.getNhienLieu();
+		String fuelConsumption = xe.getNlTieuHao();
 
 		String features = xe.getTienNghi();
 

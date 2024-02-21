@@ -125,7 +125,7 @@
 					<div class="row">
 						<c:forEach var="item" items="${page.content}">
 					<div class="col-lg-3" style="padding: 12px 12px;">
-						<a class="car-item" href="#">
+						<a class="car-item" href="/detail?id=${item.bienSo }">
 							<div class="car-item-box">
 
 								<div class="car-item-img">

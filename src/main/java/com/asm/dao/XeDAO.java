@@ -24,4 +24,5 @@ public interface XeDAO extends JpaRepository<Xe, String> {
 
 	@Query("SELECT o FROM Xe o WHERE o.trangThai = ?1")
 	List<Xe> findByXeChuaThue(Boolean keywords);
+	
 }
