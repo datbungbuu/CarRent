@@ -218,7 +218,7 @@
                   </div>
                   <div class="hidden">
                   	<span id="carId" class="hidden">${car.bienSo }</span>
-                  	<form:form action="/car/contract/rent" modelAttribute="contract">
+                  	<form:form action="/contract/rent" modelAttribute="contract">
 	                  	<form:input path="ngayTao" id="createDateInput" value=""/>
 	                  	<form:input path="ngayBatDau" id="startDateInput" value=""/>
 	                  	<form:input path="ngayKetThuc" id="endDateInput" value=""/>
@@ -226,6 +226,11 @@
 	                  	<form:input path="tongTien" id="totalPriceInput" value=""/>
 	                  	<form:input path="tienCoc" id="prePriceInput" value="0"/>
 	                  	<form:input path="xe" id="carInput" value=""/>
+	                  	<c:choose>
+							<c:when test="${not empty currentAccount}">
+								<form:input path="khachHang" id="" value="${currentAccount.maKH }"/>
+							</c:when>
+						</c:choose>
 	                  	<button id="RENT"></button>
                   	</form:form>
                   	<div class="line-page"></div>
@@ -273,6 +278,7 @@
                     </div>
                     CHỌN THUÊ
                   </a>
+                  <span>${uNeedLogin}</span>
                 </div>
                 <div class="surcharge">
                   <p class="title text-primary">Phụ phí có thể phát sinh</p>
