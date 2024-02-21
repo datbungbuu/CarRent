@@ -1,8 +1,13 @@
 package com.asm.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,11 +18,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.asm.config.WebSecurityConfig;
 import com.asm.dao.KhachHangDAO;
 import com.asm.dao.NhanVienDAO;
+import com.asm.dao.XeDAO;
 import com.asm.entity.KhachHang;
 import com.asm.entity.NhanVien;
+import com.asm.entity.Xe;
 import com.asm.helper.managerOTP;
 import com.asm.service.SessionService;
 import com.asm.util.MailInfo;
+
 
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,6 +49,9 @@ public class loginController {
 	
 	@Autowired
 	NhanVienDAO nvDAO;
+	
+	@Autowired
+	XeDAO xeDAO;
 	
 	@Autowired
 	WebSecurityConfig wconfig;
@@ -314,7 +325,10 @@ public class loginController {
 	}
 	
 	@RequestMapping("/car/index")
-	public String index() {
+	public String index(Model model, @RequestParam("page") Optional<Integer> page) {
+		Pageable pageable = PageRequest.of(page.orElse(0), 8);
+		Page<Xe> pages= xeDAO.findAll(pageable); 
+		model.addAttribute("page", pages);
 		return "index";
 	}
 }
