@@ -20,37 +20,15 @@
 <script src="https://kit.fontawesome.com/460094d4fd.js"
 	crossorigin="anonymous"></script>
 <link href="/css/qlyxestyle.css" rel="stylesheet">
+
 </head>
 <body>
 	<div class="carrent-layout">
 		<!-- Header -->
-		<div class="c-header">
-			<div class="c-container">
-				<a class="header-logo"> <img alt="CarRent"
-					src="/img/anh nhom size 32.png">
-				</a>
-				<div class="header-menu">
-					<a href="#">Về CarR</a> <a href="#">Trở Thành Đối Tác</a> <a
-						href="#">Chuyến Của Tôi</a>
-					<div class="vertical-line"></div>
-					<div>
-						<div class="notification">
-							<i class="fa-regular fa-bell" style="font-size: 1.3rem;"></i>
-						</div>
-					</div>
-					<div class="profile">
-						<a class="profile" href="#">
-							<div class="profile-avatar">
-								<img alt="" src="/img/dat.jpg">
-							</div> <span class=name>Thành Đạt</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@include file="Layout/header.jsp" %>
 
 		<div class="c-container">
-			<div class="header-menu">
+			<div class="header-menu" style="justify-content: center;">
 				<div>
 					<div class="dropdown">
 						<button class="btn dropdown-toggle btn-outline-dark rounded-pill"

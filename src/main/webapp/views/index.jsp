@@ -123,424 +123,56 @@
 				</div>
 				<div class="c-container">
 					<div class="row">
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
+						<c:forEach var="item" items="${page.content}">
+					<div class="col-lg-3" style="padding: 12px 12px;">
+						<a class="car-item" href="#">
+							<div class="car-item-box">
+
+								<div class="car-item-img">
+									<div class="car-img">
+										<img alt="" src="/images/xe/${item.imgDauXe }">
 									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
+									<span class="car-note"> <span class="c-note"> Đặt
+											Xe Nhanh <i class="fa-solid fa-bolt" style="color: yellow;"></i>
+									</span> <span class="c-note"> Miễn Thế Chấp <i
+											class="fa-solid fa-lock-open" style="color: green;"></i>
+									</span>
+									</span>
+									<div class="car-avatar">
+										<img alt="" src="/img/dat.jpg">
+									</div>
+									<span class="car-discount">${item.trangThai==true?'Đã thuê':'Chưa thuê' }</span>
+								</div>
+
+								<div class="car-item-detail">
+									<div class="c-detail-type">
+										<span class="type-item">Số tự động</span> <span
+											class="type-item-1">Giao Xe Tận Nơi</span>
+									</div>
+									<div class="c-detail-name">
+										<p>${item.tenXe }</p>
+										<i class="fa-solid fa-shield-halved" style="color: green"></i>
+									</div>
+									<div class="c-detail-address">
+										<i class="fa-solid fa-location-dot" style="color: red"></i>
+										<p>Quận 1, Hồ Chí Minh</p>
+									</div>
+									<div class="c-detail-line"></div>
+									<div class="c-detail-price">
+										<div class="price-info">
+											<i class="fa-solid fa-person-walking-luggage"></i> <span
+												class="num-trip">36 Chuyến</span>
 										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
+										<div class="price-warp">
+										 <span class="price-special">${item.giaThue }</span>
 										</div>
 									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
-						
-						<div class="col-lg-3" style="padding: 12px 12px;">
-							<a class="car-item" href="#">
-								<div class="car-item-box">
-									<div class="car-item-img">
-										<div class="car-img">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-note">
-											<span class="c-note">
-												Đặt Xe Nhanh
-												<i class="fa-solid fa-bolt" style="color: yellow;"></i>
-											</span>
-											<span class="c-note">
-												Miễn Thế Chấp
-												<i class="fa-solid fa-lock-open" style="color: green;"></i>
-											</span>										
-										</span>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<div class="car-avatar">
-											<img alt="" src="/img/DatBruceLee.jpg">
-										</div>
-										<span class="car-discount">Giảm 100%</span>
-									</div>
-									
-									<div class="car-item-detail">
-										<div class="c-detail-type">
-											<span class="type-item">Số tự động</span>
-											<span class="type-item-1">Giao Xe Tận Nơi</span>
-										</div>
-										<div class="c-detail-name">
-											<p>Car Name</p>
-											<i class="fa-solid fa-shield-halved" style="color: green"></i>
-										</div>
-										<div class="c-detail-address">
-											<i class="fa-solid fa-location-dot" style="color: red"></i>
-											<p>Address</p>
-										</div>
-										<div class="c-detail-line"></div>
-										<div class="c-detail-price">
-											<div class="price-info">
-												<i class="fa-solid fa-person-walking-luggage"></i>
-												<span class="num-trip">Số Chuyến</span>
-											</div>
-											<div class="price-warp">
-												<span class="price-origin">199K</span>
-												<span class="price-special">188K</span>
-											</div>
-										</div>
-									</div>
-								</div>	
-							</a>
-						</div>
+								</div>
+
+							</div>
+						</a>
+					</div>
+				</c:forEach>
 					</div>
 				</div>
 			</div>

@@ -18,7 +18,7 @@
 							<a href="car/home">Quản Lý</a>
 						</c:when>
 					</c:choose> --%>				
-					<a href="#">Xe Cho Thuê</a>
+					<a href="qlxe">Xe Cho Thuê</a>
 					<a href="#">Về CarR</a>
 					<a href="#">Trở Thành Đối Tác</a>
 					<c:choose>
