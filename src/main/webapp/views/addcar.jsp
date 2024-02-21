@@ -61,6 +61,11 @@
 											    <label class="form-label">Biển Số</label>
 											    <form:input type="text" class="form-control" path="bienSo"/>
 											    <!-- <input type="text" class="form-control" name="id" > -->
+											    <div class="form-error ${errorMessageBS==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageBS}</>
+													</span>								
+												</div>
 											    </div>
 											 </div>	
 											 
@@ -99,7 +104,7 @@
 											 <!-- Ngay dang kiem -->
 											 <div class="mb3">
 											 	<form:label class="form-lable" path="">Ngày Đăng Kiểm</form:label>
-											 	<form:input type="text" class="form-control" path="ngayDangKiem"/>
+											 	<form:input type="text" class="form-control" path="ngayDangKiem" value = "2023/09/15"/>
 											 </div>							 											 											
 			 
 											 <div class="mb-3">
@@ -208,9 +213,7 @@
 											 </div>
 										</div>
 									</div>
-									<div class="row">
-										
-									</div>
+									
 									<hr>
 									<div class="row mb-3">
 										<div class="d-grid gap-2 d-md-flex justify-content-md-end">

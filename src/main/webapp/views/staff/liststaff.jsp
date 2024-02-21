@@ -35,9 +35,10 @@
 							    Sắp Xếp
 							  </button>
 							  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							    <li><a class="dropdown-item" href="/car/sort?field=giaThue">Theo Giá</a></li>
-							    <li><a class="dropdown-item" href="/car/sort?field=trangThai">Theo Trạng Thái</a></li>
-							    <li><a class="dropdown-item" href="/car/sort?field=hangXe">Theo Hãng</a></li>
+							    <li><a class="dropdown-item" href="/staff/sort?field1=maNV">Theo Mã Nhân Viên</a></li>
+							    <li><a class="dropdown-item" href="/staff/sort?field1=trangThai">Theo Trạng Thái</a></li>
+							    <li><a class="dropdown-item" href="/staff/sort?field1=huyen">Theo Quận</a></li>
+							     <li><a class="dropdown-item" href="/staff/sort?field1=huyen">Theo Chức Vụ</a></li>
 							  </ul>
 							</div>
 								
@@ -45,41 +46,41 @@
 								<table class="table table-bordered text-center">
 									<thead>
 									    <tr>
-									      <th scope="col">Biển Số </th>
-									      <th scope="col">Tên xe</th>
-									      <th scope="col">Hãng xe</th>
-									      <th scope="col">Tên Loại</th>
-									      <th scope="col">Giá thuê</th>
-									      <th scope="col">Số chỗ</th>
-									       <th scope="col">Ngày Đăng Kiểm</th>
-									      <th scope="col">Truyền động</th>
-									      <th scope="col">Nhiên Liệu</th>
-									      <th scope="col">Nhiêu liệu tiêu hao</th>
-									      <th scope="col">Tiện Nghi</th>
-									      <th scope="col">Địa điểm</th>
+									      <th scope="col">Mã Nhân Viên </th>
+									      <th scope="col">Họ Nhân Viên</th>
+									      <th scope="col">Tên Nhân Viên</th>
+									      <th scope="col">Giới Tính</th>
+									      <th scope="col">Số Điện Thoại</th>
+									      <th scope="col">Ngày Sinh</th>
+									       <th scope="col">Email</th>
+									      <th scope="col">Thành Phố</th>
+									      <th scope="col">Quận / Huyện</th>
+									      <th scope="col">Phường / Xã</th>
+									      <th scope="col">Đường</th>
+									      <th scope="col">Chức Vụ</th>
 									      <th scope="col">Trạng thái hoạt động</th>
 									      <th scope="col"><i class="fa-solid fa-gear"></i></th>
 									    </tr>
 									</thead>
 									<tbody>
-									<c:forEach items="${lscar}" var="item">
+									 <c:forEach items="${lsnv}" var="item">
 									    <tr>
-									      <td>${item.bienSo}</td>
-									      <td>${item.tenXe}</td>
-										  <td>${item.hangXe.tenHang}</td>
-										  <td>${item.loaiXe.tenLoai}</td> 
-										  <td>${item.giaThue}</td>
-										  <td>${item.soCho}</td>
-										  <td>${item.ngayDangKiem}</td>
-										  <td>${item.truyenDong}</td>
-										  <td>${item.nhienLieu} </td>
-										  <td>${item.nlTieuHao}lit/100km</td>
-										  <td>${item.tienNghi}</td>
-										   <td>${item.truSo.huyen}</td> 
-										  <td>${item.trangThai? 'Đang cho thuê' : 'Còn Trống' }</td>
-									      <td> <a href="/car/edit/${item.bienSo }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
+									      <td>${item.maNV}</td>
+									      <td>${item.hoNV}</td>
+										  <td>${item.tenNV}</td>
+										  <td>${item.gioiTinh? 'Nam' : 'Nữ'}</td> 
+										  <td>${item.soDienThoai}</td>
+										  <td>${item.ngaySinh}</td>
+										  <td>${item.email}</td>
+										  <td>${item.tinh}</td>
+										  <td>${item.huyen} </td>
+										  <td>${item.xa}</td>
+										  <td>${item.duong}</td>
+										   <td>${item.chucVu? 'Quản Lý' : 'Nhân Viên'}</td> 
+										  <td>${item.trangThai? 'Đang hoạt động' : 'OFF' }</td>
+									      <td> <a href="/staff/edit/${item.maNV }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
 									    </tr>
-									</c:forEach>		  
+									</c:forEach>	 	  
 									</tbody>
 								</table>
 								

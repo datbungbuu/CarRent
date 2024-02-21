@@ -40,10 +40,10 @@
 				      <div class="accordion-body">
 				      	<ul class="list-group p-0" style="cursor: pointer;">					
 							 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-							 	<a href="<c:url value='/user?action=add'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-user-pen"></i> USER EDITION</a>
+							 	<a href="/car/staff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-user-pen"></i> USER EDITION</a>
 							 </li>
 							 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-							 	<a href="<c:url value='/user?action=view'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> USER LIST</a>
+							 	<a href="/car/liststaff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> USER LIST</a>
 							 </li>
 						 </ul>	
 				      </div>
