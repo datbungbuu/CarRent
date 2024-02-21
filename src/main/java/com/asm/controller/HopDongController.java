@@ -13,13 +13,13 @@ import com.asm.dao.HopDongDAO;
 import com.asm.entity.HopDong;
 
 @Controller
-@RequestMapping("hopdong")
+@RequestMapping("car/contract")
 public class HopDongController {
 
 	@Autowired
 	HopDongDAO hopDongDAO;
 
-	@PostMapping("thue")
+	@PostMapping("rent")
 	public String clickThue(@ModelAttribute("contract") HopDong hopDong) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		if (sdf.format(hopDong.getNgayKetThuc()).equals(sdf.format(new Date()))) {

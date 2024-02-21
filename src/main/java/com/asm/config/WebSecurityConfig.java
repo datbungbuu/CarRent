@@ -30,6 +30,8 @@ public class WebSecurityConfig{
 						.authenticated()
 						.anyRequest()
 						.permitAll())
+				.formLogin(form -> form
+						.loginPage("/car/login"))
 				.build();
 	}
 }

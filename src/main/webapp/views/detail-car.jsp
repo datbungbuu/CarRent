@@ -218,7 +218,7 @@
                   </div>
                   <div class="hidden">
                   	<span id="carId" class="hidden">${car.bienSo }</span>
-                  	<form:form action="/hopdong/thue" modelAttribute="contract">
+                  	<form:form action="/car/contract/rent" modelAttribute="contract">
 	                  	<form:input path="ngayTao" id="createDateInput" value=""/>
 	                  	<form:input path="ngayBatDau" id="startDateInput" value=""/>
 	                  	<form:input path="ngayKetThuc" id="endDateInput" value=""/>
