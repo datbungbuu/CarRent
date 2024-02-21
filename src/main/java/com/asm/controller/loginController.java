@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.config.WebSecurityConfig;
 import com.asm.dao.KhachHangDAO;
+import com.asm.dao.NhanVienDAO;
 import com.asm.entity.KhachHang;
+import com.asm.entity.NhanVien;
 import com.asm.helper.managerOTP;
 import com.asm.service.SessionService;
 import com.asm.util.MailInfo;
@@ -38,6 +40,9 @@ public class loginController {
 	KhachHangDAO khDAO;
 	
 	@Autowired
+	NhanVienDAO nvDAO;
+	
+	@Autowired
 	WebSecurityConfig wconfig;
 	
 	@Autowired
@@ -58,25 +63,45 @@ public class loginController {
 		
 	
 	@RequestMapping("/car/login/submit")
-	public String loginSubmit(Model model, @RequestParam("email") String email, @RequestParam("password") String password) {
+	public String loginSubmit(Model model, @RequestParam("tendn") String tendn, @RequestParam("password") String password) {
 		
 		boolean flag;
+		String temp= "";
 		
-		if(email.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
+		if(tendn.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
 			flag = false;	
-		}else {
-			try {
-				KhachHang findkh = khDAO.findByEmail(email);			
-				if (email.equals(findkh.getEmail())) {
-					boolean pwmatches = wconfig.passwordEncoder().matches(password, findkh.getMatKhau());
-					if(pwmatches) {							
-						session.setAttribute("currentAccount", findkh);
-						String uri = (String) session.getAttribute("security-uri");
-						flag = true;
+		}else {				
+			KhachHang findkh = khDAO.findByEmail(tendn);			
+			if(findkh == null) {
+				NhanVien findnv = nvDAO.findByMaNV(tendn);
+				if(tendn.equals(findnv.getMaNV())) {
+					boolean pwmatches = wconfig.passwordEncoder().matches(password, findnv.getMatKhau());
+					if(pwmatches) {						
+						session.setAttribute("nvAccount", findnv);
+						String uri = (String) session.getAttribute("security-uri");						
 						if(uri != null) {
 							return "redirect:" + uri;
 						}else {
 							flag = true;
+							temp = "lNV";							
+						}				
+					}else {
+						flag = false;
+					}
+				}else {
+					flag = false;
+				}
+			}else {
+				if (tendn.equals(findkh.getEmail())) {
+					boolean pwmatches = wconfig.passwordEncoder().matches(password, findkh.getMatKhau());
+					if(pwmatches) {							
+						session.setAttribute("currentAccount", findkh);
+						String uri = (String) session.getAttribute("security-uri");						
+						if(uri != null) {
+							return "redirect:" + uri;
+						}else {
+							flag = true;
+							temp = "lKH";							
 						}
 					}else {
 						flag = false;
@@ -84,17 +109,21 @@ public class loginController {
 				}else {
 					flag = false;
 				}
-						
-			} catch (Exception e) {
-				flag = false;
-			}
+			}						
 		}
 		
-		if(flag == true) {
-			return "redirect:/car/index";
-		}else {
+		String newurl = "";
+		
+		if(flag == false) {			
 			model.addAttribute("errorMessage", "Thông Tin Đăng Nhập Chưa Chính Xác !!");
 			return "Login/login";
+		}else {
+			if(temp.equals("lNV")) {
+				newurl = "/car/home";
+			}else{
+				newurl = "/car/index";
+			}
+			return "redirect:" + newurl ;
 		}
 	}
 	
@@ -279,6 +308,7 @@ public class loginController {
 	@RequestMapping("car/logout")
 	public String logout(Model model) {
 		session.removeAttribute("currentAccount");
+		session.removeAttribute("nvAccount");
 		session.removeAttribute("security-uri");
 		return "redirect:/car/index";
 	}

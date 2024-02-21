@@ -6,6 +6,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 
 import com.asm.entity.KhachHang;
+import com.asm.entity.NhanVien;
 import com.asm.service.SessionService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,10 +23,12 @@ public class AuthInterceptor implements HandlerInterceptor{
 			throws Exception {
 		String uri = request.getRequestURI();
 		KhachHang kh = (KhachHang) session.getAttribute("currentAccount");
-		String errorLogin = "";
+		NhanVien nv = (NhanVien) session.getAttribute("nvAccount");
+		String errorLogin = "VuiLongDangNhap";
 		String errorAdmin = "";
-		if(kh == null) {
-			errorLogin = "VuiLongDangNhap";
+		
+		if (nv!=null || kh != null) {
+			errorLogin = "";
 		}
 //		else if(!a.isRole() && uri.startsWith("car/admin")) {
 //			errorAdmin = "TruyCapBiTuChoi";

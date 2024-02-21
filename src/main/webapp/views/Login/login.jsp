@@ -22,7 +22,7 @@
 						<h5 class="item-title">Đăng Nhập</h5>
 						<div class="item-form">
 							<div class="mb-3">							
-								<input name="email" type="text" class="form-control" placeholder="Tên Đăng Nhập Hoặc Email">
+								<input name="tendn" type="text" class="form-control" placeholder="Tên Đăng Nhập Hoặc Email">
 							</div>
 							<div class="mb-3">						
 								<input name="password" type="password" class="form-control" placeholder="Mật Khẩu">

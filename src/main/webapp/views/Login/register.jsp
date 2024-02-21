@@ -30,10 +30,10 @@
 <body>
 	<div class="container-fluid p-0">
 		<div class="register-container">
-			<div class="login-form">
+			<div class="register-form">
 				<form:form action="/car/register/submit" modelAttribute="khachhang">
 					<div class="form-item">
-						<h5 class="item-title">Đăng Ký</h5>
+						<h5 class="item-title">ĐĂNG KÝ</h5>
 						<div class="item-form">
 							<div class="mb-3">							
 								<form:input path="email" class="form-control" placeholder="Email Đăng Nhập"/>
