@@ -24,14 +24,23 @@ public class WebSecurityConfig{
 		
 	@Bean
 	public SecurityFilterChain securityFilter(HttpSecurity http) throws Exception{
-		return http.csrf(AbstractHttpConfigurer::disable)
+		
+		http.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(req -> req
 						.requestMatchers("/")
 						.authenticated()
 						.anyRequest()
 						.permitAll())
 				.formLogin(form -> form
-						.loginPage("/car/login"))
-				.build();
+						.loginPage("/login")
+						.usernameParameter("username")
+						.passwordParameter("password")
+						.loginProcessingUrl("/login-request")
+						.defaultSuccessUrl("/car/index")
+						.failureUrl("/failure"))
+				.exceptionHandling(e -> e
+						.accessDeniedPage("/accessDenied"));
+		
+			return 	http.build();
 	}
 }

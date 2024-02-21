@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.config.WebSecurityConfig;
-import com.asm.dao.AccountDAO;
 import com.asm.dao.KhachHangDAO;
-import com.asm.entity.Account;
 import com.asm.entity.KhachHang;
 import com.asm.helper.managerOTP;
 import com.asm.service.SessionService;
@@ -32,11 +30,9 @@ public class loginController {
 	private static final String SDT_Vali = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
 	private static final String Email_Vali = "[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 	private static final String Pass_Vali = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=]).{8,16}$";
-	@Autowired
-	HttpServletRequest req;
 	
 	@Autowired
-	AccountDAO accDAO;
+	HttpServletRequest req;	
 	
 	@Autowired
 	KhachHangDAO khDAO;
@@ -53,7 +49,12 @@ public class loginController {
 	@RequestMapping("/car/login")
 	public String login() {
 		return "Login/login";
-	}	
+	}
+	
+//	@RequestMapping("car/login")
+//	public String login() {
+//		return "login";
+//	}	
 		
 	
 	@RequestMapping("/car/login/submit")

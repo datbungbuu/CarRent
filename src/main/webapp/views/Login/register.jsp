@@ -29,7 +29,7 @@
 </head>
 <body>
 	<div class="container-fluid p-0">
-		<div class="login-container">
+		<div class="register-container">
 			<div class="login-form">
 				<form:form action="/car/register/submit" modelAttribute="khachhang">
 					<div class="form-item">
@@ -102,7 +102,7 @@
 							</div>
 							<div class="form-suggest">
 								<span class="suggest-item">
-									<a href="/login">Bạn Đã Có Tài Khoản?</a>
+									<a href="/car/login">Bạn Đã Có Tài Khoản?</a>
 								</span>								
 							</div>
 						</div>						

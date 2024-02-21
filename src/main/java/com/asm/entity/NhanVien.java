@@ -40,7 +40,7 @@ public class NhanVien {
 
 	// số điện thoại
 	@Column(name = "sodienthoai", nullable = false)
-	private Integer soDienThoai;
+	private String soDienThoai;
 
 	// ngày sinh
 	@Temporal(TemporalType.DATE)
