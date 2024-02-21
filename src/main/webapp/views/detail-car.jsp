@@ -629,6 +629,14 @@
 					    	</c:otherwise>
 						</c:choose>
 						<c:choose>
+				    		<c:when test="${bluetooth != null}">
+			    				<li> <img loading="lazy" src="/images/bluetooth-v2.png"
+                          			alt="Mioto - Thuê xe tự lái">${bluetooth }</li>
+                   			</c:when>    
+					    	<c:otherwise>
+					    	</c:otherwise>
+						</c:choose>
+						<c:choose>
 				    		<c:when test="${airbag != null}">
 				    			<li> <img loading="lazy" src="/images/airbags-v2.png"
                           			alt="Mioto - Thuê xe tự lái">${airbag }</li>
