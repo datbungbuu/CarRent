@@ -1,20 +1,14 @@
 package com.asm.controller;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,50 +22,41 @@ import com.asm.dao.LoaiXeDAO;
 import com.asm.dao.NhanVienDAO;
 import com.asm.dao.TruSoDAO;
 import com.asm.dao.XeDAO;
-import com.asm.entity.Car;
 import com.asm.entity.HangXe;
 import com.asm.entity.LoaiXe;
 import com.asm.entity.NhanVien;
 import com.asm.entity.TruSo;
 import com.asm.entity.Xe;
 
-
-
-
-
-
-
-
 @Controller
 public class AdminController {
 //	@Autowired
 //	CarDao xedao;
-	
+
 	@Autowired
 	XeDAO xedao;
-	
+
 	@Autowired
 	HangXeDAO hangxedao;
-	
+
 	@Autowired
 	LoaiXeDAO loaixedao;
-	
+
 	@Autowired
 	TruSoDAO trusodao;
-	
+
 	@Autowired
 	NhanVienDAO nvdao;
-	
+
 	@Autowired
 	WebSecurityConfig wconfig;
-	
+
 	SimpleDateFormat sm = new SimpleDateFormat("MM/dd/yyyy");
 	private static final String SDT_Vali = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
 	private static final String Email_Vali = "[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 	private static final String Pass_Vali = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=]).{8,16}$";
 	private static final String BS_Vali = "^[0-9]{2}[A-Z]{1}[-]{0,1}[0-9]{3}[.]{0,1}[0-9]{2}$";
-	
-	
+
 	public void ClearForm(@ModelAttribute("carmodel") Xe car) {
 		car.setBienSo("");
 		car.setNgayDangKiem(null);
@@ -79,7 +64,7 @@ public class AdminController {
 		car.setGiaThue(null);
 		car.setMoTa("");
 	}
-	
+
 	public void ClearFormStaff(@ModelAttribute("staffmodel") NhanVien staff) {
 		staff.setMaNV("");
 		staff.setMatKhau("");
@@ -95,66 +80,65 @@ public class AdminController {
 		staff.setDuong("");
 		staff.setChucVu(null);
 		staff.setTrangThai(null);
-		}
-	
+	}
+
 //	hàng xe
 	@ModelAttribute("hangXes")
-	public List<HangXe> gethangxe1(){
+	public List<HangXe> gethangxe1() {
 		List<HangXe> listhangxe = hangxedao.findAll();
 		return listhangxe;
 	}
+
 //	loại xe
 	@ModelAttribute("loaiXes")
-	public List<LoaiXe> getloaixe1(){
+	public List<LoaiXe> getloaixe1() {
 		List<LoaiXe> listloaixe = loaixedao.findAll();
 		return listloaixe;
 	}
-	
+
 //	trụ sở 
 	@ModelAttribute("truSos")
-	public List<TruSo> gettrusos(){
+	public List<TruSo> gettrusos() {
 		List<TruSo> listtruso = trusodao.findAll();
 		return listtruso;
 	}
-	
+
 	@RequestMapping("car/home")
 	public String homepage() {
-		
+
 		return "home";
 	}
-	
+
 	@GetMapping("car/list")
 	public String listCar(Model model) {
-		
+
 		List<Xe> cars = xedao.findAll();
-		model.addAttribute("lscar",cars);
+		model.addAttribute("lscar", cars);
 		return "listcar";
 	}
-	
 
 	@GetMapping("car/add")
-	public String indexadd(Model model, @ModelAttribute("carmodel") Xe car ) {
-		
+	public String indexadd(Model model, @ModelAttribute("carmodel") Xe car) {
+
 		return "addcar";
 	}
-	
-	
-	
-	
+
 	@GetMapping("/car/sort")
-	public String sortPrice(Model model , @RequestParam("field") Optional<String> field) {
-		Sort sort = Sort.by(Direction.DESC , field.orElse("giaThue"));
-		model.addAttribute("field" , field.orElse("giaThue").substring(0,1).toUpperCase() + field.orElse("giaThue").substring(1 , field.orElse("giaThue").length() ));
-		model.addAttribute("lscar" , xedao.findAll(sort));
-		
+	public String sortPrice(Model model, @RequestParam("field") Optional<String> field) {
+		Sort sort = Sort.by(Direction.DESC, field.orElse("giaThue"));
+		model.addAttribute("field", field.orElse("giaThue").substring(0, 1).toUpperCase()
+				+ field.orElse("giaThue").substring(1, field.orElse("giaThue").length()));
+		model.addAttribute("lscar", xedao.findAll(sort));
+
 		return "listcar";
 	}
+
 //	
 	@GetMapping("/car/edit/{bienSo}")
-	public String editCar(Model model , @PathVariable("bienSo") String bienSo , @ModelAttribute("carmodel") Xe car) {
-		if(xedao.findById(car.getBienSo()).isEmpty()) {
+	public String editCar(Model model, @PathVariable("bienSo") String bienSo, @ModelAttribute("carmodel") Xe car) {
+		if (xedao.findById(car.getBienSo()).isEmpty()) {
 			return "redirect: /listcar";
-		}else {
+		} else {
 			Xe cars = xedao.findById(bienSo).get();
 			car.setBienSo(cars.getBienSo());
 			car.setTenXe(cars.getTenXe());
@@ -174,54 +158,53 @@ public class AdminController {
 			car.setImgSuonPXe(cars.getImgSuonPXe());
 			car.setImgDuoiXe(cars.getImgDuoiXe());
 			car.setMoTa(cars.getMoTa());
-			
+
 		}
-		
+
 		return "addcar";
 	}
-	
+
 	@PostMapping("/car/create")
-	public String addCar(Model model,  @ModelAttribute("carmodel") Xe car) {
-		boolean flag=true;
+	public String addCar(Model model, @ModelAttribute("carmodel") Xe car) {
+		boolean flag = true;
 		boolean ktBS = car.getBienSo().matches(BS_Vali);
-		
-		if(!ktBS == true) {
+
+		if (!ktBS == true) {
 			model.addAttribute("errorMessageBS", "Nhập BS hợp lệ!");
 			flag = false;
 		}
-		
-		if(flag == true) {
-			if(!xedao.existsById(car.getBienSo())){
+
+		if (flag == true) {
+			if (!xedao.existsById(car.getBienSo())) {
 				xedao.save(car);
 				ClearForm(car);
 				System.out.println("thêm thành công");
-			}else {
+			} else {
 				throw new RuntimeException("mã này đã tồn tại");
 			}
-			
+
 			return "addcar";
-		}else {
+		} else {
 			return "addcar";
 		}
-		
-		
+
 	}
+
 //	
 	@PostMapping("/car/update")
-	public String updateCar(Model model, @ModelAttribute("carmodel") Xe car ) {
-		
-		if(xedao.existsById(car.getBienSo())){
+	public String updateCar(Model model, @ModelAttribute("carmodel") Xe car) {
+
+		if (xedao.existsById(car.getBienSo())) {
 			xedao.save(car);
 			ClearForm(car);
 			System.out.println("update thành công");
-		}else {
+		} else {
 			throw new RuntimeException("update không thành công");
 		}
-		
+
 		return "addcar";
 	}
-	
-	
+
 //	@PostMapping("/car/delete")
 //	public String deleteCar(Model model, @ModelAttribute("carmodel") Xe car ) {
 //		
@@ -237,48 +220,42 @@ public class AdminController {
 //		
 //		return "addcar";
 //	}
-	
-	
-	
+
 //	THEM NHAN VIEN
-	
+
 	@RequestMapping("car/staff")
 	public String staff(Model model, @ModelAttribute("staffmodel") NhanVien staff) {
-		
-		
+
 		return "staff/addstaff";
 	}
-	
+
 	@RequestMapping("car/liststaff")
 	public String liststaff(Model model) {
 		NhanVien nv = new NhanVien();
 		List<NhanVien> nvs = nvdao.findAll();
-		model.addAttribute("lsnv",nvs);
-		
+		model.addAttribute("lsnv", nvs);
+
 		return "staff/liststaff";
 	}
-	
+
 	@PostMapping("/staff/create")
-	public String addstaff(Model model , @ModelAttribute("staffmodel") NhanVien staff) {
-		
-		boolean flag=true;
-		
+	public String addstaff(Model model, @ModelAttribute("staffmodel") NhanVien staff) {
+
+		boolean flag = true;
+
 		boolean ktSDT = staff.getSoDienThoai().matches(SDT_Vali);
 		boolean ktEmail = staff.getEmail().matches(Email_Vali);
 		boolean ktPass = staff.getMatKhau().matches(Pass_Vali);
-		
-		
-		
+
 		NhanVien findemailnv = nvdao.findByEmail(staff.getEmail());
-		
-		
-		if(findemailnv==null || !findemailnv.getEmail().equalsIgnoreCase(staff.getEmail())) {				
+
+		if (findemailnv == null || !findemailnv.getEmail().equalsIgnoreCase(staff.getEmail())) {
 			flag = true;
-		}else {
+		} else {
 			model.addAttribute("errorMessageE", "Email đã tồn tại!");
 			flag = false;
 		}
-		if(!ktEmail == true) {
+		if (!ktEmail == true) {
 			model.addAttribute("errorMessageE", "Nhập email hợp lệ!");
 			flag = false;
 		}
@@ -289,113 +266,114 @@ public class AdminController {
 //			model.addAttribute("errorMessageM", "Mã nhân viên đã tồn tại!");
 //			flag = false;
 //		}
-		if(staff.getMaNV() == null || staff.getMaNV().equals("")){
+		if (staff.getMaNV() == null || staff.getMaNV().equals("")) {
 			model.addAttribute("errorMessageM", "Nhập mã nhân viên!");
 			flag = false;
 		}
 //		checkmk
-		if ( staff.getMatKhau()==null || staff.getMatKhau().equals("") ) {
+		if (staff.getMatKhau() == null || staff.getMatKhau().equals("")) {
 			model.addAttribute("errorMessageP", "Vui lòng nhập mật khẩu!");
 			flag = false;
 		}
-		if(!ktPass == true) {
-			model.addAttribute("errorMessageP", "Mật khẩu của bạn phải dài từ 8 đến 16 ký tự, phải chứa ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và 1 ký tự đặc biệt");
+		if (!ktPass == true) {
+			model.addAttribute("errorMessageP",
+					"Mật khẩu của bạn phải dài từ 8 đến 16 ký tự, phải chứa ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và 1 ký tự đặc biệt");
 			flag = false;
 		}
 //		check ho
-		if ( staff.getHoNV()==null || staff.getHoNV().equals("") ) {
+		if (staff.getHoNV() == null || staff.getHoNV().equals("")) {
 			model.addAttribute("errorMessageH", "Vui lòng nhập họ!");
 			flag = false;
 		}
 //		check tên
-		if ( staff.getTenNV()==null || staff.getTenNV().equals("") ) {
+		if (staff.getTenNV() == null || staff.getTenNV().equals("")) {
 			model.addAttribute("errorMessageT", "Vui lòng nhập tên!");
 			flag = false;
 		}
 //		check giới tính
-		if(staff.getGioiTinh() == null) {
+		if (staff.getGioiTinh() == null) {
 			model.addAttribute("errorMessageG", "Vui lòng nhập chọn giới tính!");
 			flag = false;
 		}
 //		check sdt
-		if ( staff.getSoDienThoai()==null || staff.getSoDienThoai().equals("") ) {
+		if (staff.getSoDienThoai() == null || staff.getSoDienThoai().equals("")) {
 			model.addAttribute("errorMessagePH", "Vui lòng nhập số điện thoại!");
 			flag = false;
 		}
-		if(!ktSDT == true) {
+		if (!ktSDT == true) {
 			model.addAttribute("errorMessagePH", "Số điện thoại không hợp lệ!");
 			flag = false;
 		}
 //		check ngày sinh
-		if(staff.getNgaySinh() == null || staff.getNgaySinh().equals("") ){
+		if (staff.getNgaySinh() == null || staff.getNgaySinh().equals("")) {
 			model.addAttribute("errorMessageB", "Vui lòng nhập ngày sinh!");
 			flag = false;
 		}
 // 		check thành phố
-		if(staff.getTinh() == null || staff.getTinh().equals("")){
+		if (staff.getTinh() == null || staff.getTinh().equals("")) {
 			model.addAttribute("errorMessageTP", "Vui lòng nhập tỉnh!");
 			flag = false;
 		}
-		if(staff.getHuyen() == null || staff.getHuyen().equals("")){
+		if (staff.getHuyen() == null || staff.getHuyen().equals("")) {
 			model.addAttribute("errorMessageQ", "Vui lòng nhập huyện!");
 			flag = false;
 		}
-		if(staff.getXa() == null || staff.getXa().equals("")){
+		if (staff.getXa() == null || staff.getXa().equals("")) {
 			model.addAttribute("errorMessageX", "Vui lòng nhập xã!");
 			flag = false;
 		}
-		if(staff.getDuong() == null || staff.getDuong().equals("")){
+		if (staff.getDuong() == null || staff.getDuong().equals("")) {
 			model.addAttribute("errorMessageS", "Vui lòng nhập đường!");
 			flag = false;
 		}
 //		check chức vụ
-		if(staff.getChucVu() == null ){
+		if (staff.getChucVu() == null) {
 			model.addAttribute("errorMessageCV", "Vui lòng chọn chức vụ!");
 			flag = false;
 		}
-		
-		if(flag == true) {
-			
-			if(!nvdao.existsById(staff.getMaNV())){
+
+		if (flag == true) {
+
+			if (!nvdao.existsById(staff.getMaNV())) {
 				String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
 				staff.setMatKhau(encodedPW);
 				nvdao.save(staff);
 				ClearFormStaff(staff);
 				System.out.println("thêm thành công");
 				return "staff/addstaff";
-			}else {
+			} else {
 				model.addAttribute("errorMessageM", "Mã nhân viên đã tồn tại!");
-				
+
 			}
 			return "staff/addstaff";
-			
-		}else {
+
+		} else {
 			return "staff/addstaff";
 		}
 	}
-	
-	@PostMapping("/staff/update")
-	public String updateStaff(Model model , @ModelAttribute("staffmodel") NhanVien staff ) {
 
-		if(nvdao.existsById(staff.getMaNV())){
+	@PostMapping("/staff/update")
+	public String updateStaff(Model model, @ModelAttribute("staffmodel") NhanVien staff) {
+
+		if (nvdao.existsById(staff.getMaNV())) {
 //			String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
 //			staff.setMatKhau(encodedPW);
 			nvdao.save(staff);
 			ClearFormStaff(staff);
 			System.out.println("update thành công");
-		}else {
+		} else {
 			throw new RuntimeException("update không thành công");
 		}
-		
+
 		return "staff/addstaff";
 	}
-	
-	
+
 	@GetMapping("/staff/edit/{maNV}")
-	public String editCar(Model model , @PathVariable("maNV") String maNV , @ModelAttribute("staffmodel") NhanVien staff) {
-		if(nvdao.findById(staff.getMaNV()).isEmpty()) {
+	public String editCar(Model model, @PathVariable("maNV") String maNV,
+			@ModelAttribute("staffmodel") NhanVien staff) {
+		if (nvdao.findById(staff.getMaNV()).isEmpty()) {
 			return "redirect: /liststaff";
-		}else {
+		} else {
 			NhanVien staffs = nvdao.findById(maNV).get();
 			staff.setMaNV(staffs.getMaNV());
 			staff.setMatKhau(staffs.getMatKhau());
@@ -411,20 +389,17 @@ public class AdminController {
 			staff.setDuong(staffs.getDuong());
 			staff.setChucVu(staffs.getChucVu());
 			staff.setTrangThai(staffs.getTrangThai());
-	
+
 		}
 		return "staff/addstaff";
 	}
-	
+
 	@GetMapping("/staff/sort")
-	public String sortStaff(Model model , @RequestParam("field1") Optional<String> field) {
-		Sort sort = Sort.by(Direction.ASC , field.orElse("maMV"));
-		model.addAttribute("lsnv" , nvdao.findAll(sort));
-		
+	public String sortStaff(Model model, @RequestParam("field1") Optional<String> field) {
+		Sort sort = Sort.by(Direction.ASC, field.orElse("maMV"));
+		model.addAttribute("lsnv", nvdao.findAll(sort));
+
 		return "staff/liststaff";
 	}
-	
-	
-	
-	
+
 }

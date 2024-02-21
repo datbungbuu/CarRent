@@ -29,8 +29,8 @@
             <!-- <a href="">Trở thành chủ xe</a> -->
             <div class="vertical-line"></div>
             <div></div>
-            <a class="btn btn--s sign-in">Đăng ký</a>
-            <a class="btn btn--s">Đăng nhập</a>
+            <a href="/car/register" class="btn btn--s sign-in">Đăng ký</a>
+            <a href="/car/login" class="btn btn--s">Đăng nhập</a>
           </div>
         </div>
       </section>
@@ -278,7 +278,7 @@
                     </div>
                     CHỌN THUÊ
                   </a>
-                  <span>${uNeedLogin}</span>
+                  <p class="text-danger">${uNeedLogin}</p>
                 </div>
                 <div class="surcharge">
                   <p class="title text-primary">Phụ phí có thể phát sinh</p>
