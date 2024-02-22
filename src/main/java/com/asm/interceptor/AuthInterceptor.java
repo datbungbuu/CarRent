@@ -21,28 +21,44 @@ public class AuthInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
 		String uri = request.getRequestURI();
+		
 		KhachHang kh = (KhachHang) session.getAttribute("currentAccount");
 		NhanVien nv = (NhanVien) session.getAttribute("nvAccount");
-		String errorLogin = "VuiLongDangNhap";
-		String errorAdmin = "";
 		
-		if (nv!=null || kh != null) {
+		String errorLogin = "VuiLongDangNhap";
+		String errorKH = "TruyCapBiTuChoi";
+		String errorAD = "TruyCapThatBai";
+		
+		if(nv!=null || kh != null) {
 			errorLogin = "";
 		}
-//		else if(!a.isRole() && uri.startsWith("car/admin")) {
-//			errorAdmin = "TruyCapBiTuChoi";
-//		}
+		
+		if(nv != null) {
+			errorKH = "";
+		}
+		
+		if(kh != null) {
+			errorAD = "";
+		}
+		
+		
 		if(errorLogin.length() > 0) {
 			session.setAttribute("security-uri", uri);
 			response.sendRedirect("/car/login?error=" + errorLogin);
 			return false;
 		}
-//		else if(errorAdmin.length() > 0) {
-//			session.setAttribute("security-uri", uri);
-//			response.sendRedirect("/car/index?error=" + errorAdmin);
-//			return false;
-//		}
+		if(errorKH.length() > 0) {
+			session.setAttribute("security-uri", uri);
+			response.sendRedirect("/car/index?error=" + errorKH);
+			return false;
+		}
+		if(errorAD.length() > 0) {
+			session.setAttribute("security-uri", uri);
+			response.sendRedirect("/car/home?error=" + errorAD);
+			return false;
+		}
 		
 		return true;
 	}

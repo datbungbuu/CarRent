@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 	<!-- Header -->
 		<div class="c-header">
 			<div class="c-container">				
-				<a>		
+				<a href="/car/index">		
 					<div class="header-logo">
 						<img src="/img/iconCarRent1.jpg">		
 					</div>									
@@ -18,7 +17,7 @@
 							<a href="car/home">Quản Lý</a>
 						</c:when>
 					</c:choose> --%>				
-					<a href="qlxe">Xe Cho Thuê</a>
+					<a href="/car/dsxe">Xe Cho Thuê</a>
 					<a href="#">Về CarR</a>
 					<a href="#">Trở Thành Đối Tác</a>
 					<c:choose>

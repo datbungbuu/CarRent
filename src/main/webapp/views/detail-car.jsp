@@ -12,27 +12,14 @@
 <link rel="stylesheet" href="calendar/style.css">
 <link href="css/main.chunk.css" rel="stylesheet">
 <link href="css/2.chunk.css" rel="stylesheet">
+<link href="/css/indexStyle.css" rel="stylesheet">
 </head>
 
 <body class="">
   <div canvas="container" id="root">
     <div class="mioto-layout">
       <section class="header scroll-top">
-        <div class="m-container">
-          <a class="logo-container" href="">
-            <div class="full-logo">
-              <img loading="lazy" src="/images/logo-full.png" alt="Mioto">
-            </div>
-          </a>
-          <div class="menu-container">
-            <a href="">Về Mioto</a>
-            <!-- <a href="">Trở thành chủ xe</a> -->
-            <div class="vertical-line"></div>
-            <div></div>
-            <a href="/car/register" class="btn btn--s sign-in">Đăng ký</a>
-            <a href="/car/login" class="btn btn--s">Đăng nhập</a>
-          </div>
-        </div>
+        <%@include file="Layout/header.jsp" %>
       </section>
       <section class="body">
         <div class="header-car">

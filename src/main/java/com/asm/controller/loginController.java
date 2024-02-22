@@ -89,6 +89,7 @@ public class loginController {
 					boolean pwmatches = wconfig.passwordEncoder().matches(password, findnv.getMatKhau());
 					if(pwmatches) {						
 						session.setAttribute("nvAccount", findnv);
+						session.removeAttribute("currentAccount");
 						String uri = (String) session.getAttribute("security-uri");						
 						if(uri != null) {
 							return "redirect:" + uri;
@@ -107,6 +108,7 @@ public class loginController {
 					boolean pwmatches = wconfig.passwordEncoder().matches(password, findkh.getMatKhau());
 					if(pwmatches) {							
 						session.setAttribute("currentAccount", findkh);
+						session.removeAttribute("nvAccount");
 						String uri = (String) session.getAttribute("security-uri");						
 						if(uri != null) {
 							return "redirect:" + uri;

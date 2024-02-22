@@ -22,7 +22,7 @@ public class qlxecontroller {
 	@Autowired
 	XeDAO dao;
 
-	@RequestMapping("/car/qlxe")
+	@RequestMapping("/car/dsxe")
 	public String index(Model model) {
 		Xe item = new Xe();
 		model.addAttribute("item", item);
