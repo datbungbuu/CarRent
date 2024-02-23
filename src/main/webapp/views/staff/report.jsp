@@ -22,38 +22,46 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0">
+	<div class="col-sm-10 pe-0 ps-0">
 	<%@include file = "/common/nav.jsp" %>
 		
 		
 			<div class="row justify-content-center m-0" >
-							<h1 class="text-center mt-3 mb-3" style="color: #289d8c">CAR LIST</h1>
-								
-								<!-- drop sort -->
-								<div class="dropdown mb-2">
-							  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-							    Ngày Tạo
-							  </button>
-							  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							  <%-- <c:forEach items="${reports}" var="item">
-							  	 <li><a class="dropdown-item" href="" name = "key">${item.ngayTao}</a></li>
-							  
-							   </c:forEach> --%>
-							   
-<%-- 						   <form class="d-flex" action="/shoe/seach" method="post">
-					 	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="key" value="${key}">
-						        <button class="btn btn-outline-success" type="submit">Search</button>
-						      </form> --%>
-						      
-						      
-							
-							  </ul>
-							</div>
-							 <form class="d-flex mb-3" action="/car/report" >
+							<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Thống Kê Hợp Đồng</h1>
+								<div class="row">
+									<div class="col-sm-6">
+											<div class="dropdown mb-2">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+								    Trạng thái hợp đồng
+								  </button>
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+									  <%-- <c:forEach items="${reports}" var="item">
+									  	 <li><a class="dropdown-item" href="" name = "key">${item.ngayTao}</a></li>
+									  
+									   </c:forEach> --%>
+									   
+		<%-- 						   <form class="d-flex" action="/shoe/seach" method="post">
+							 	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="key" value="${key}">
+								        <button class="btn btn-outline-success" type="submit">Search</button>
+								      </form> --%>
+								      
+								      <li><a class="dropdown-item btn btn-outline-success" href="/lstthdnull"  >Chưa xử lý</a></li>
+									  <li><a class="dropdown-item btn btn-outline-success" href="/lstthd" >Đã xử lý</a></li>
+									  </ul>
+								</div>
+									</div>
+									
+									<div class="col-sm-6">
+										<form class="d-flex mb-3" action="/car/report" >
 					 	        <input class="form-control me-2" type="date" placeholder="Search" aria-label="Search" name="key" >
 						        <button class="btn btn-outline-success" type="submit">Search</button>
 						        
 						      </form> 
+									</div>
+								</div>
+								<!-- drop sort -->
+								
+							 
 						      
 								
 							<div style="height:  600px; overflow-y: scroll;">
@@ -61,6 +69,8 @@
 									<thead>
 									    <tr>
 									      <th>Mã Hợp Đồng</th>
+									      <th>Trạng Thái</th>
+									      <th>Nhân Viên</th>
 									      <th>Khách Hàng </th>
 									      <th>biến số xe</th>
 										  <th>Tên Xe</th>
@@ -77,6 +87,33 @@
 									    <tr>
 									    
 									      <td>HD${item.maHopDong}</td>
+									      <td> 
+									      <c:choose>
+											<c:when test="${not empty item.nhanVien.tenNV}">
+												<p class="card-text fs-6 " style="font-size: 12px">Đã Xác Nhân</p>
+											</c:when>
+											<c:otherwise>
+												<p class="card-text fs-6 " style="font-size: 12px">Chưa Xác Nhận</p>
+											</c:otherwise>
+										</c:choose>
+									      
+									      <%-- ${item.nhanVien.tenNV} --%>
+									      
+									      </td>
+									      
+									      <td> 
+									      <c:choose>
+											<c:when test="${not empty item.nhanVien.tenNV}">
+												<p class="card-text fs-6 " style="font-size: 12px">${item.nhanVien.tenNV}</p>
+											</c:when>
+											<c:otherwise>
+												<p class="card-text fs-6 " style="font-size: 12px">Chưa Có Nhân Viên </p>
+											</c:otherwise>
+										</c:choose>
+									      
+									      <%-- ${item.nhanVien.tenNV} --%>
+									      
+									      </td>
 									      <td>${item.khachHang.tenKH}</td>
 									      <td>${item.xe.bienSo}</td>
 									      <td>${item.xe.tenXe}</td>
@@ -94,26 +131,7 @@
 							    <c:forEach items="${reports}" var="item">
 							        <c:set var="totalPrice" value="${totalPrice + item.tongTien}" />
 							    </c:forEach>
-								<p id="money2">Tổng đơn giá của tất cả sản phẩm là: ${totalPrice}</p>
-								<%-- <!-- phân trang -->
-							<nav aria-label="Page navigation example">
-							  <ul class="pagination">
-							    <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Previous">
-							        <span aria-hidden="true">&laquo;</span>
-							      </a>
-							    </li>
-							    <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-left"></i></a></li>
-							    <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-arrow-right"></i></a></li>
-							    
-							    <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Next">
-							        <span aria-hidden="true">&raquo;</span>
-							      </a>
-							    </li>
-							  </ul>
-							</nav>	 --%>
-								
+								<p id="money2" class="fs-3 fw-bold">Tổng doanh thu là: ${totalPrice}</p>
 							</div>	
 							
 														
@@ -147,7 +165,7 @@
 
     var totalPriceElement = document.getElementById("money2");
     var totalPriceValue = parseFloat("${totalPrice}");
-    totalPriceElement.innerHTML = "Tổng đơn giá của tất cả sản phẩm là: " + formatCurrency(totalPriceValue);
+    totalPriceElement.innerHTML = "Tổng doanh thu là: " + formatCurrency(totalPriceValue);
 </script>
 </body>
 </html>

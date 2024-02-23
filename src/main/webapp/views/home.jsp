@@ -32,14 +32,14 @@
 					<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Về Xe</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/add" class="btn btn-warning"> Quản Lý </a>
 				    
 				   	 
-				    <a href="/car/list" class="btn btn-warning"> List Car </a>
+				    <a href="/car/list" class="btn btn-warning"> Danh Sách  </a>
 				
 				    
 				    </div>
@@ -50,14 +50,14 @@
 				<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Về Nhân Viên</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/staff" class="btn btn-warning">Quản Lý </a>
 				    
 				   	 
-				    <a href="/car/list" class="btn btn-warning"> List Car </a>
+				    <a href="/car/liststaff" class="btn btn-warning"> Danh Sách  </a>
 				
 				    
 				    </div>
@@ -68,14 +68,14 @@
 				<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Thống Kê</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/report" class="btn btn-warning"> Thống Kê Hợp Đồng </a>
 				    
 				   	 
-				    <a href="/car/list" class="btn btn-warning"> List Car </a>
+				    <!-- <a href="/car/list" class="btn btn-warning"> List Car </a> -->
 				
 				    
 				    </div>

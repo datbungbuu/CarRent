@@ -22,8 +22,8 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0 mt-5">
-	<%-- <%@include file = "/common/nav.jsp" %> --%>
+	<div class="col-sm-10 pe-0 ps-0">
+	 <%@include file = "/common/nav.jsp" %> 
 		
 		
 				<form:form action="/car/add" method="post" modelAttribute="carmodel">

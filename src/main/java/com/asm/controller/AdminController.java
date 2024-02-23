@@ -34,6 +34,7 @@ import com.asm.entity.NhanVien;
 import com.asm.entity.Report;
 import com.asm.entity.TruSo;
 import com.asm.entity.Xe;
+import com.asm.service.SessionService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -43,6 +44,9 @@ import jakarta.servlet.http.HttpServletRequest;
 public class AdminController {
 //	@Autowired
 //	CarDao xedao;
+	
+	@Autowired
+	SessionService session;
 
 	@Autowired
 	XeDAO xedao;
@@ -433,18 +437,43 @@ public class AdminController {
 
 	@PostMapping("/staff/update")
 	public String updateStaff(Model model, @ModelAttribute("staffmodel") NhanVien staff) {
+		boolean flag = true;
 
-		if (nvdao.existsById(staff.getMaNV())) {
-			String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
-			staff.setMatKhau(encodedPW);
-			nvdao.save(staff);
-			ClearFormStaff(staff);
-			System.out.println("update thành công");
-		} else {
-			throw new RuntimeException("update không thành công");
+		boolean ktSDT = staff.getSoDienThoai().matches(SDT_Vali);
+		boolean ktEmail = staff.getEmail().matches(Email_Vali);
+		boolean ktPass = staff.getMatKhau().matches(Pass_Vali);
+		
+//		checkmk
+		if (staff.getMatKhau() == null || staff.getMatKhau().equals("")) {
+			model.addAttribute("errorMessageP", "Vui lòng nhập mật khẩu!");
+			flag = false;
 		}
+		if (!ktPass == true) {
+			model.addAttribute("errorMessageP",
+					"Mật khẩu của bạn phải dài từ 8 đến 16 ký tự, phải chứa ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số và 1 ký tự đặc biệt");
+			flag = false;
+		}
+		
+		if (flag == true) {
 
-		return "staff/addstaff";
+			if (nvdao.existsById(staff.getMaNV())) {
+//				String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
+//				staff.setMatKhau(encodedPW);
+				nvdao.save(staff);
+				ClearFormStaff(staff);
+				System.out.println("Cập Nhật  thành công");
+				return "staff/addstaff";
+			} else {
+				model.addAttribute("errorMessageM", "Cập Nhật Thất Bại");
+
+			}
+			return "staff/addstaff";
+
+		} else {
+			return "staff/addstaff";
+		}
+		
+		
 	}
 
 	@GetMapping("/staff/edit/{maNV}")
@@ -501,11 +530,29 @@ public class AdminController {
     			e.printStackTrace();
     		}
         }
-        
-        
-        
-		
+		return "staff/report";
+	}
+	
+//	sort trạng thái hd
+	@RequestMapping("lstthdnull")
+	public String listPreContract(Model model) {
+		List<HopDong> list = hddao.findByNhanVienIsNull();
+		model.addAttribute("reports", list);
+		return "staff/report";
+	}
+	
+	@RequestMapping("lstthd")
+	public String listPostContract(Model model) {
+		List<HopDong> list = hddao.findByNhanVienIsNotNull();
+		model.addAttribute("reports", list);
 		return "staff/report";
 	}
 
+	@RequestMapping("car/admin/logout")
+	public String logout(Model model) {
+		session.removeAttribute("currentAccount");
+		session.removeAttribute("nvAccount");
+		session.removeAttribute("security-uri");
+		return "redirect:/car/login";
+	}
 }

@@ -205,7 +205,7 @@
                   </div>
                   <div class="hidden">
                   	<span id="carId" class="hidden">${car.bienSo }</span>
-                  	<form:form action="/contract/rent" modelAttribute="contract">
+                  	<form:form action="/contract/rent?id=${car.bienSo }" modelAttribute="contract">
 	                  	<form:input path="ngayTao" id="createDateInput" value=""/>
 	                  	<form:input path="ngayBatDau" id="startDateInput" value=""/>
 	                  	<form:input path="ngayKetThuc" id="endDateInput" value=""/>
@@ -913,95 +913,6 @@ Trân trọng cảm ơn, chúc quý khách hàng có những chuyến đi tuyệ
                   <p class="note-address">Địa chỉ cụ thể sẽ được hiển thị sau khi đặt cọc</p>
                 </div>
                 <div class="line-page"></div>
-                <!-- <div class="info-car-desc">
-                  <div class="reviews">
-                    <div class="rate-review">
-                      <div class="wrap-svg">
-                        <svg class="star-rating" width="16" height="17" viewBox="0 0 16 17"
-                          fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M14.6667 7.23331C14.7333 6.89998 14.4667 6.49998 14.1333 6.49998L10.3333 5.96665L8.59999 2.49998C8.53333 2.36665 8.46666 2.29998 8.33333 2.23331C7.99999 2.03331 7.59999 2.16665 7.39999 2.49998L5.73333 5.96665L1.93333 6.49998C1.73333 6.49998 1.59999 6.56665 1.53333 6.69998C1.26666 6.96665 1.26666 7.36665 1.53333 7.63331L4.26666 10.3L3.59999 14.1C3.59999 14.2333 3.59999 14.3666 3.66666 14.5C3.86666 14.8333 4.26666 14.9666 4.59999 14.7666L7.99999 12.9666L11.4 14.7666C11.4667 14.8333 11.6 14.8333 11.7333 14.8333C11.8 14.8333 11.8 14.8333 11.8667 14.8333C12.2 14.7666 12.4667 14.4333 12.4 14.0333L11.7333 10.2333L14.4667 7.56665C14.6 7.49998 14.6667 7.36665 14.6667 7.23331Z"
-                            fill="#FFC634"></path>
-                        </svg>
-                      </div>
-                      <p class="rate">5.0</p>
-                    </div>
-                    <span class="dot">•</span>
-                    <p class="total-review">38 đánh giá</p>
-                  </div>
-                  <div class="list-reviews">
-                    <div class="item-review">
-                      <div class="profile">
-                        <div class="desc"><a href="https://www.mioto.vn/profile/UP6S5G" class="avatar avatar--m"><img
-                              loading="lazy" src="/images/urg7g5ixxBey59nYCvGgzw.jpg"
-                              alt="Mioto - Thuê xe tự lái"></a>
-                          <div class="info"><a href="https://www.mioto.vn/profile/UP6S5G">
-                              <h6>duongpt168</h6>
-                            </a>
-                            <div class="rate">
-                              <div class="star-ratings" title="5 Stars"
-                                style="position: relative; box-sizing: border-box; display: inline-block;">
-                                <svg class="star-grad" style="position: absolute; z-index: 0; width: 0px; height: 0px; visibility: hidden;">
-                                  <defs>
-                                    <lineargradient id="starGrad878087022244811" x1="0%" y1="0%" x2="100%" y2="0%">
-                                      <stop offset="0%" class="stop-color-first"
-                                        style="stop-color: rgb(255, 198, 52); stop-opacity: 1;"></stop>
-                                      <stop offset="0%" class="stop-color-first"
-                                        style="stop-color: rgb(255, 198, 52); stop-opacity: 1;"></stop>
-                                      <stop offset="0%" class="stop-color-final"
-                                        style="stop-color: rgb(203, 211, 227); stop-opacity: 1;"></stop>
-                                      <stop offset="100%" class="stop-color-final"
-                                        style="stop-color: rgb(203, 211, 227); stop-opacity: 1;"></stop>
-                                    </lineargradient>
-                                  </defs>
-                                </svg>
-                                <div class="star-container"
-                                  style="position: relative; display: inline-block; vertical-align: middle; padding-right: 1px;">
-                                  <svg viewBox="0 0 51 48" class="widget-svg"
-                                    style="width: 17px; height: 17px; transition: transform 0.2s ease-in-out 0s;">
-                                    <path class="star" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                                      style="fill: rgb(255, 198, 52); transition: fill 0.2s ease-in-out 0s;"></path>
-                                  </svg></div>
-                                <div class="star-container"
-                                  style="position: relative; display: inline-block; vertical-align: middle; padding-left: 1px; padding-right: 1px;">
-                                  <svg viewBox="0 0 51 48" class="widget-svg"
-                                    style="width: 17px; height: 17px; transition: transform 0.2s ease-in-out 0s;">
-                                    <path class="star" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                                      style="fill: rgb(255, 198, 52); transition: fill 0.2s ease-in-out 0s;"></path>
-                                  </svg></div>
-                                <div class="star-container"
-                                  style="position: relative; display: inline-block; vertical-align: middle; padding-left: 1px; padding-right: 1px;">
-                                  <svg viewBox="0 0 51 48" class="widget-svg"
-                                    style="width: 17px; height: 17px; transition: transform 0.2s ease-in-out 0s;">
-                                    <path class="star" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                                      style="fill: rgb(255, 198, 52); transition: fill 0.2s ease-in-out 0s;"></path>
-                                  </svg></div>
-                                <div class="star-container"
-                                  style="position: relative; display: inline-block; vertical-align: middle; padding-left: 1px; padding-right: 1px;">
-                                  <svg viewBox="0 0 51 48" class="widget-svg"
-                                    style="width: 17px; height: 17px; transition: transform 0.2s ease-in-out 0s;">
-                                    <path class="star" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                                      style="fill: rgb(255, 198, 52); transition: fill 0.2s ease-in-out 0s;"></path>
-                                  </svg></div>
-                                <div class="star-container"
-                                  style="position: relative; display: inline-block; vertical-align: middle; padding-left: 1px;">
-                                  <svg viewBox="0 0 51 48" class="widget-svg"
-                                    style="width: 17px; height: 17px; transition: transform 0.2s ease-in-out 0s;">
-                                    <path class="star" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                                      style="fill: rgb(255, 198, 52); transition: fill 0.2s ease-in-out 0s;"></path>
-                                  </svg></div>
-                              </div>
-                              <p class="time">06/01</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-see-more">
-                    <a class="btn btn--s btn-secondary">Xem thêm</a>
-                  </div>
-                </div> -->
               </div>
             </div>
             <div class="clear"></div>
