@@ -1,5 +1,6 @@
 package com.asm.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import com.asm.dao.XeDAO;
 import com.asm.entity.HopDong;
 import com.asm.entity.GiaoXe;
 import com.asm.entity.Xe;
+import com.asm.entity.lsTraXe;
+import com.asm.helper.excelHelper;
 import com.asm.service.SessionService;
 
 
@@ -105,6 +108,14 @@ public class GiaoXeController {
 	@RequestMapping("/car/Listgiaoxe")
 	public String listTraXe(Model model) {
 		List<GiaoXe> nxe  = NXDAO.findAll();
+		model.addAttribute("dsnxe", nxe );
+		return "giaoxe/Listgiaoxe";
+	}
+	
+	@RequestMapping("/car/Listgiaoxe/export")
+	public String xuatExcel(Model model) throws IOException {		
+		List<GiaoXe> nxe  = NXDAO.findAll();
+		excelHelper.exportlsGiaoXe(nxe);
 		model.addAttribute("dsnxe", nxe );
 		return "giaoxe/Listgiaoxe";
 	}
