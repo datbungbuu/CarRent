@@ -136,7 +136,7 @@ class Calendar extends React.Component {
     // Calculate the difference in days between startDate and endDate
     const startInModal = startDate.format('DD/MM/YYYY');
     const endInModal = endDate.format('DD/MM/YYYY');
-    const daysDifference = endDate.diff(startDate, 'days');
+    const daysDifference = endDate.diff(startDate, 'days') + 1;
     
     document.getElementById("startInModal").innerHTML = startInModal;
     document.getElementById("endInModal").innerHTML = endInModal;

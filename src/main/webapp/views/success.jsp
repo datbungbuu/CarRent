@@ -45,6 +45,9 @@
 		<div>
 			<a class="btn btn-primary" href="/car/index">Về trang chủ</a>
 		</div>
+        <div>
+            <button id="submit" onclick="exportHTML()">Export to Word</button>
+        </div>
 	</div>
 	<div id="source-html">
 	<h3 class="text-center">CỘNG HÒA XÃ HÔI CHỦ NGHĨA VIỆT NAM</h3>
@@ -87,12 +90,12 @@
             <td>
                 <p>Tên xe: ${nameCar }</p>
                 <p>Biển số: ${licensePlates }</p>
-                <p>Giá thuê/ngày:${pricePerDay }VND/Ngày </p>
+                <p id="giaThue">Giá thuê/ngày:${pricePerDay }/ngày </p>
             </td>
             <td>
                 <p>Ngày bắt đầu: ${startDate }</p>
                 <p>Ngày kết thúc: ${endDate }</p>
-                <p>Giá thuê: ${totalPrice }kVND</p>
+                <p id="tongTien">Giá thuê: ${totalPrice }</p>
             </td>
         </tr>
     </table>
@@ -127,9 +130,28 @@
     </div>
     
     <br>
-    <button id="submit" onclick="exportHTML()">Export to Word</button>
+    
 </body>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lấy phần tử có id là "giaThue" và "tongTien"
+        var giaThueElement = document.getElementById("giaThue");
+        var tongTienElement = document.getElementById("tongTien");
+
+        // Lấy giá trị từ thuộc tính textContent của các phần tử
+        var pricePerDay = giaThueElement.textContent.split(":")[1].trim();
+        var totalPrice = tongTienElement.textContent.split(":")[1].trim();
+
+        // Format giá trị thành định dạng tiền của Việt Nam
+        var formatter = new Intl.NumberFormat("vi-VN", {
+            style: "currency",
+            currency: "VND"
+        });
+
+        // Định dạng và cập nhật lại nội dung của phần tử
+        giaThueElement.textContent = "Giá thuê/ngày: " + formatter.format(parseFloat(pricePerDay)) + "/ngày";
+        tongTienElement.textContent = "Giá thuê: " + formatter.format(parseFloat(totalPrice));
+    });
     function exportHTML(){
        
        var sourceHTML = document.getElementById("source-html").innerHTML;
@@ -138,7 +160,7 @@
        var fileDownload = document.createElement("a");
        document.body.appendChild(fileDownload);
        fileDownload.href = source;
-       fileDownload.download = 'document.doc';
+       fileDownload.download = 'hop-dong-tam-thoi.doc';
        fileDownload.click();
        document.body.removeChild(fileDownload);
     }

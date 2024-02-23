@@ -9,7 +9,7 @@
 
 <head itemscope="" itemtype="http://schema.org/WebSite">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mioto - Ứng dụng cho thuê xe tự lái &amp; có tài xế 4-7 chỗ</title>
+    <title>Thông tin cá nhân</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
         content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=0">
@@ -44,14 +44,13 @@
     <script>!function (e, t, n, c, o, a, f) { e.fbq || (o = e.fbq = function () { o.callMethod ? o.callMethod.apply(o, arguments) : o.queue.push(arguments) }, e._fbq || (e._fbq = o), o.push = o, o.loaded = !0, o.version = "2.0", o.queue = [], (a = t.createElement(n)).async = !0, a.src = "https://connect.facebook.net/en_US/fbevents.js", (f = t.getElementsByTagName(n)[0]).parentNode.insertBefore(a, f)) }(window, document, "script"), fbq("init", "467366885531539"), fbq("track", "PageView")</script>
     <link href="/css/main.chunk.css" rel="stylesheet">
     <link href="/css/2.chunk.css" rel="stylesheet">
-    <script src="./thongtincanhan_files/js(6)" async=""></script>
 </head>
 
 <body>
     <div canvas="container" id="root">
         <div class="mioto-layout">
             <section class="header line-header  scroll-top ">
-                <div class="m-container"><a class="logo-container" href="">
+                <div class="m-container"><a class="logo-container" href="/car/index">
                         <div class="full-logo"><img loading="lazy" src="/img/iconCarRent1.jpg"
                                 alt="Mioto"></div>
                         <div class="short-logo"><img loading="lazy"
@@ -59,40 +58,14 @@
                                 alt="Mioto"></div>
                     </a>
                     <div class="menu-container">
-                    <a href="/car/logout">Đăng xuất</a>
-                    <a href=""></a>
-                    <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href="/car/logout">Đăng xuất</a>
                         <div class="vertical-line"></div>
-                        <div>
-                            <div class="notification">
-                                <div class="wrap-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.22 16.62C20.22 17.47 19.53 18.16 18.68 18.16H5.32004C4.47004 18.16 3.78003 17.47 3.78003 16.62C3.78003 15.77 4.47004 15.08 5.32004 15.08H5.83002V9.94002C5.83002 6.54002 8.59003 3.77002 12 3.77002C13.7 3.77002 15.24 4.46002 16.36 5.58002C17.48 6.69002 18.17 8.23002 18.17 9.94002V15.08H18.68C19.53 15.08 20.22 15.77 20.22 16.62Z"
-                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                        <path d="M12 3.78V2.75" stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                        <path
-                                            d="M15.08 18.1699C15.08 19.8799 13.7 21.2499 12 21.2499C10.3 21.2499 8.92004 19.8699 8.92004 18.1699H15.08Z"
-                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </svg></div>
-                                <div class="dropdown-menu">
-                                    <h5 class="title-name">Thông báo</h5>
-                                    <div class="line-page"></div>
-                                    <div class="list-noti">
-                                        <div class="empty"><img loading="lazy" class="empty-noti"
-                                                src="./thongtincanhan_files/empty-noti.d68f85ae.svg">
-                                            <p class="font-14 textAlign-center">Không có thông báo</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="dropdown-profile"><a class="dropdown-profile" href="">
-                                <div class="avatar avatar--s"><img loading="lazy"
-                                        src="./thongtincanhan_files/awoQ7SxDUjg11VwG9sKffA.jpg"
+                                <div class="avatar avatar--s">
+                                    <img loading="lazy"
+                                        src="/img/${guests.avatar }"
                                         alt="Ten khach hang"></div><span class="name">${guests.tenKH }</span>
                                 <div class="wrap-svg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none">
@@ -110,47 +83,6 @@
                                     <path d="M5 12H19" stroke="black" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round"></path>
                                 </svg></div>
-                        </div>
-                        <div class="menu-mobile open move-left">
-                            <div class="header-menu">
-                                <div class="close-menu">×</div>
-                            </div>
-                            <div class="m-container">
-                                <div class="menu-list"><a class="menu-avatar" href="">
-                                        <div class="avatar avatar--s"><img loading="lazy"
-                                                src="./thongtincanhan_files/awoQ7SxDUjg11VwG9sKffA.jpg"
-                                                alt="Tran Minh Trung FPL HCM"></div><span class="name">Tran Minh Trung
-                                            FPL HCM</span>
-                                    </a>
-                                    <div class="line-page"></div><a class="menu-list__item"
-                                        href="">Xe của tôi</a>
-                                    <div class="line-page"></div><a class="menu-list__item"
-                                        href="">Xe yêu thích</a>
-                                    <div class="line-page"></div><a class="menu-list__item"
-                                        href="">Quà tặng</a>
-                                </div>
-                                <div class="menu-list"><a class="menu-list__item" href="">Về
-                                        Mioto</a>
-                                    <div class="line-page"></div><a class="menu-list__item"
-                                        href="">Trở thành chủ xe</a>
-                                    <div class="line-page"></div><a class="menu-list__item"
-                                        href="">Chuyến của tôi</a>
-                                </div><a class="menu-logout">
-                                    <div class="wrap-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12 2.74907H18.12C18.9125 2.71374 19.6868 2.99377 20.2734 3.52788C20.86 4.06199 21.2111 4.8067 21.25 5.59907V18.3991C21.2111 19.1914 20.86 19.9362 20.2734 20.4703C19.6868 21.0044 18.9125 21.2844 18.12 21.2491H12"
-                                                stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                            <path d="M14.9993 12H2.7793" stroke="black" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M2.75 12L6.75 16" stroke="black" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M2.75 12L6.75 8" stroke="black" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg></div>Đăng xuất
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,19 +184,19 @@
                                             
                                         </div>
                                         <div class="info-user">
-                                            <div class="info-box">
+                                            <div style="font-size: 20px;" class="info-box" >
                                                 <div class="info-box__item">
-                                                    <p>Ngày sinh </p>
+                                                    <p style="font-size: 20px;">Ngày sinh </p>
                                                     <input required pattern="[0-9]{4}-[0-1][0-9]-[0-3][0-9]" name="birthDate" disabled style="width: 100px" type="text" placeholder="Ngày sinh" value="${ngaySinh }" fdprocessedid="lw0vnk">
                                                 </div>
                                                 <div class="info-box__item">
-                                                    <p>Giới tính</p>
+                                                    <p style="font-size: 20px;">Giới tính</p>
                                                     <input required name="gender" disabled style="width: 100px" type="text" placeholder="Giới tính" value="${guests.gioiTinh ? 'Nam':'Nữ'}" fdprocessedid="lw0vnk">
                                                 </div>
                                             </div>
                                             <div class="info-desc">
                                                 <div class="info-desc__item">
-                                                    <div class="title-item">Số điện thoại<div class="note success">
+                                                    <div style="font-size: 20px;" class="title-item">Số điện thoại<div class="note success">
                                                             <div class="wrap-svg"><svg width="12" height="12"
                                                                     viewBox="0 0 12 12" fill="none"
                                                                     xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +213,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="info-desc__item">
-                                                    <div class="title-item">Email<div class="note success">
+                                                    <div style="font-size: 20px;" class="title-item">Email<div class="note success">
                                                             <div class="wrap-svg"><svg width="12" height="12"
                                                                     viewBox="0 0 12 12" fill="none"
                                                                     xmlns="http://www.w3.org/2000/svg">

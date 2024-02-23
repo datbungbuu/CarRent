@@ -460,8 +460,8 @@ public class AdminController {
 		if (flag == true) {
 
 			if (nvdao.existsById(staff.getMaNV())) {
-//				String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
-//				staff.setMatKhau(encodedPW);
+				String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
+				staff.setMatKhau(encodedPW);
 				nvdao.save(staff);
 				ClearFormStaff(staff);
 				System.out.println("Cập Nhật  thành công");

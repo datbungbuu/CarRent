@@ -56,7 +56,7 @@ public class HopDongController {
 		model.addAttribute("pricePerDay", hopDong.getGiaThue());
 		model.addAttribute("startDate", sdfdmy.format(hopDong.getNgayBatDau()));
 		model.addAttribute("endDate", sdfdmy.format(hopDong.getNgayKetThuc()));
-		model.addAttribute("totalPrice", hopDong.getTongTien()/1000);
+		model.addAttribute("totalPrice", hopDong.getTongTien());
 		session.setAttribute("hopDong", hopDong);
 		return "success";
 	}
@@ -102,7 +102,7 @@ public class HopDongController {
 		model.addAttribute("pricePerDay", hopDong.getGiaThue());
 		model.addAttribute("startDate", sdfdmy.format(hopDong.getNgayBatDau()));
 		model.addAttribute("endDate", sdfdmy.format(hopDong.getNgayKetThuc()));
-		model.addAttribute("totalPrice", hopDong.getTongTien()/1000);
+		model.addAttribute("totalPrice", hopDong.getTongTien());
 		model.addAttribute("idContract", hopDong.getMaHopDong());
 		session.setAttribute("hopDong", hopDong);
 		return "contract/view-contract";
