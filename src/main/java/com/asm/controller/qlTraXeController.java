@@ -1,5 +1,6 @@
 package com.asm.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.eclipse.angus.mail.handlers.text_xml;
@@ -17,6 +18,7 @@ import com.asm.dao.lsTraXeDAO;
 import com.asm.entity.HopDong;
 import com.asm.entity.Xe;
 import com.asm.entity.lsTraXe;
+import com.asm.helper.excelHelper;
 
 @Controller
 public class qlTraXeController {
@@ -28,7 +30,7 @@ public class qlTraXeController {
 	HopDongDAO hopDongDAO;
 	
 	@Autowired
-	XeDAO xeDAO;
+	XeDAO xeDAO;	
 
 	@RequestMapping("/car/qlTraXe")
 	public String qllsTraXe(Model model) {
@@ -76,6 +78,7 @@ public class qlTraXeController {
 		Xe xe = xeDAO.findById(hopdong.getXe().getBienSo()).get();
 		
 		if(flag == false) {
+			model.addAttribute("hd", hopdong);
 			return "TraXe/qlTraXe";
 		}else {
 			txone.setHd(hopdong);
@@ -104,6 +107,14 @@ public class qlTraXeController {
 	@RequestMapping("/car/listTraXe")
 	public String listTraXe(Model model) {
 		List<lsTraXe> lsTX = lsDAO.findAll();
+		model.addAttribute("dsTraXe", lsTX);
+		return "TraXe/listTraXe";
+	}
+	
+	@RequestMapping("/car/listTraXe/export")
+	public String xuatExcel(Model model) throws IOException {
+		List<lsTraXe> lsTX = lsDAO.findAll();
+		excelHelper.exportlsTraXe(lsTX);
 		model.addAttribute("dsTraXe", lsTX);
 		return "TraXe/listTraXe";
 	}
