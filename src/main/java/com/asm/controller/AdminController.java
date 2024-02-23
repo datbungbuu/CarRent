@@ -1,12 +1,16 @@
 package com.asm.controller;
 
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +22,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.config.WebSecurityConfig;
 import com.asm.dao.HangXeDAO;
+import com.asm.dao.HopDongDAO;
 import com.asm.dao.LoaiXeDAO;
 import com.asm.dao.NhanVienDAO;
 import com.asm.dao.TruSoDAO;
 import com.asm.dao.XeDAO;
 import com.asm.entity.HangXe;
+import com.asm.entity.HopDong;
 import com.asm.entity.LoaiXe;
 import com.asm.entity.NhanVien;
 import com.asm.entity.Report;
 import com.asm.entity.TruSo;
 import com.asm.entity.Xe;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 
 
@@ -50,7 +58,13 @@ public class AdminController {
 
 	@Autowired
 	NhanVienDAO nvdao;
+	
+	@Autowired
+	HopDongDAO hddao;
 
+	@Autowired
+	HttpServletRequest req;
+	
 	@Autowired
 	WebSecurityConfig wconfig;
 
@@ -421,8 +435,8 @@ public class AdminController {
 	public String updateStaff(Model model, @ModelAttribute("staffmodel") NhanVien staff) {
 
 		if (nvdao.existsById(staff.getMaNV())) {
-//			String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
-//			staff.setMatKhau(encodedPW);
+			String encodedPW = wconfig.passwordEncoder().encode(staff.getMatKhau());
+			staff.setMatKhau(encodedPW);
 			nvdao.save(staff);
 			ClearFormStaff(staff);
 			System.out.println("update thành công");
@@ -468,11 +482,30 @@ public class AdminController {
 	}
 	
 //	report loại xe
-//	@RequestMapping("/car/report")
-//	public String report(Model model) {
-//		List<Report> rps = xedao.getReportByHangXe();
-//		model.addAttribute("reports",rps);
-//		return "report";
-//	}
+	
+	@RequestMapping("/car/report")
+	public String report(Model model  ) {
+		String key = req.getParameter("key");
+        String format = "yyyy-MM-dd"; // Định dạng của chuỗi ngày tháng
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        
+        if(key == null || key.equals("")) {
+        	List<HopDong> rps = hddao.findAll();
+        	model.addAttribute("reports",rps);
+        }else {
+        	try {
+    			Date date = sdf.parse(key);
+    			List<HopDong> rps = hddao.findkw( date );
+    			model.addAttribute("reports",rps);
+    		} catch (ParseException e) {
+    			e.printStackTrace();
+    		}
+        }
+        
+        
+        
+		
+		return "staff/report";
+	}
 
 }
