@@ -8,23 +8,24 @@
 				</div>
 				
 				<div class="row justify-content-center">
-					<a href="/car/home" class="btn text-start"type="button" style="font-size: 24px; padding-left: 30px; color: white"><i class="fa-solid fa-house"></i> HOME</a>
+
+					<a href="/car/home" class="btn text-start"type="button" style="font-size: 24px; padding-left: 30px; color: white"><i class="fa-solid fa-house"></i> Trang Chủ</a>
 					<div class="accordion accordion-flush" id="accordionFlushExample">
 						<!-- Xe -->
 					  	<div class="accordion-item" style="background: #289d8c; color: white;">
 						    <h2 class="accordion-header" style="background: #289d8c; color: white;">
 						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="background: #289d8c; color: white;">
-						        <i class="fa-solid fa-car me-1"></i> CARS</li>
+						        <i class="fa-solid fa-car me-1"></i> Xe</li>
 						      </button>
 						    </h2>
 						    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 						      <div class="accordion-body">
 						      	<ul class="list-group p-0" style="cursor: pointer;">					
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/add" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-photo-film" ></i> CAR EDITION</a>
+									 	<a href="/car/add" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-photo-film" ></i> Quản lý xe</a>
 									 </li>
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/list" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> CAR LIST</a>
+									 	<a href="/car/list" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> Danh sách xe</a>
 									 </li>
 								 </ul>	
 						      </div>
@@ -35,17 +36,17 @@
 						<div class="accordion-item" style="background: #289d8c; color: white;">
 						    <h2 class="accordion-header" style="background: #289d8c; color: white;">
 						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style="background: #289d8c; color: white;">
-						        <i class="fa-solid fa-users me-1"></i> USERS</li>
+						        <i class="fa-solid fa-users me-1"></i> Nhân Viên</li>
 						      </button>
 						    </h2>
 						    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 						      <div class="accordion-body">
 						      	<ul class="list-group p-0" style="cursor: pointer;">					
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/staff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-user-pen"></i> USER EDITION</a>
+									 	<a href="/car/staff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-user-pen"></i> Quản lý nhân viên</a>
 									 </li>
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/liststaff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> USER LIST</a>
+									 	<a href="/car/liststaff" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-clipboard-list"></i> Danh sách nhân viên </a>
 									 </li>
 								 </ul>	
 						      </div>
@@ -63,11 +64,11 @@
 						      <div class="accordion-body">
 						      	<ul class="list-group p-0" style="cursor: pointer;">					
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/report" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Hãng Xe</a>
+									 	<a href="/car/report" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Thống kê hợp đồng</a>
 									 </li>
-									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="<c:url value='report_title'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-thumbs-up"></i> FAVOURITE USERS</a>
-									 </li>
+									
+									 
+									 
 									 <%-- <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
 									 	<a href="<c:url value='/report?action=view'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-share-nodes"></i> SHARED FRIENDS</a>
 									 </li> --%>
@@ -124,6 +125,7 @@
 						    </div>
 						</div>
 						
+<!-- >>>>>>> 3627b166ad05c47f6bdb43d8d67e9bb3dd64aac5 -->
 					</div>
 										
 						<div class="card border-0" style="background: #289d8c;color: white; padding-top: 110px;">

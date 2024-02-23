@@ -20,10 +20,15 @@
 			<div class="col-lg-2" style="background: #289d8c">
 				<%@include file ="/common/menuadmin.jsp"  %>		
 			</div>		
-			<div class="col-sm-10 pe-0">
+			<div class="col-sm-10 pe-0 ps-0">
 			<%@include file = "/common/nav.jsp" %>		
 				<div class="row justify-content-center m-0" >
-					<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Nhận Bàn Giao Xe</h1>								
+					<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Nhận Bàn Giao Xe</h1>
+					<div class="d-flex flex-row mb-3">
+					  <div class="p-2">
+					  	<a class="btn btn-outline-primary" href="/car/listTraXe/export">Export To Excel</a>
+					  </div>
+					</div>								
 					<!-- drop sort -->
 					<!-- <div class="dropdown mb-2">
 					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

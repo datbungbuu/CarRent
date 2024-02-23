@@ -22,8 +22,8 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0 mt-5">
-	<%-- <%@include file = "/common/nav.jsp" %> --%>
+	<div class="col-sm-10 pe-0 ps-0">
+	<%@include file = "/common/nav.jsp" %> 
 		
 		
 			<div class="card m-auto  " style="width: 40rem">

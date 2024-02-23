@@ -17,7 +17,7 @@
 	<div class="col-lg-2" style="background: #289d8c">
 		<%@include file ="/common/menuadmin.jsp"  %>		
 	</div>	
-	<div class="col-sm-10 pe-0">
+	<div class="col-sm-10 pe-0 ps-0">
 	<%@include file = "/common/nav.jsp" %>
 		<div class="row justify-content-center m-0" >
 			<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Hợp Đồng</h1>
