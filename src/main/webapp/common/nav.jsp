@@ -5,14 +5,23 @@
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <li class="nav-item " >
+        	<c:choose>
+				<c:when test="${not empty  nvAccount}">
+					<p class="card-text fs-4 fw-bold" style="font-size: 12px">Xin Chào ${nvAccount.tenNV}</p>
+				</c:when>
+				<c:otherwise>
+					<p class="card-text" style="font-size: 12px">Xin Chào</p>
+				</c:otherwise>
+			</c:choose>
         </li> 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+        
+        <c:choose>
+			<c:when test="${not empty  nvAccount}">
+				<a class="btn btn-outline-danger" href="/car/admin/logout">Đăng xuất</a>
+			</c:when>
+		</c:choose>
     </div>
   </div>
 </nav>

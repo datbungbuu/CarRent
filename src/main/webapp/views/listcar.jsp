@@ -22,12 +22,12 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0">
+	<div class="col-sm-10 pe-0 ps-0">
 	<%@include file = "/common/nav.jsp" %>
 		
 		
 			<div class="row justify-content-center m-0" >
-							<h1 class="text-center mt-3 mb-3" style="color: #289d8c">CAR LIST</h1>
+							<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Xe</h1>
 								
 								<!-- drop sort -->
 								<div class="dropdown mb-2">

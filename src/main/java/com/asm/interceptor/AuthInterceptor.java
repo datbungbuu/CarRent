@@ -30,7 +30,6 @@ public class AuthInterceptor implements HandlerInterceptor {
 		String errorKH = "TruyCapBiTuChoi";
 		String errorAD = "";
 
-
 		if (nv != null || kh != null) {
 			errorLogin = "";
 		}
