@@ -34,16 +34,18 @@
 								</div>
 							</div>
 							<div class="profile">
+								<a href="/guest">
 								<div class="profile-avatar">
 									<img alt="" src="/img/${currentAccount.avatar}">
-								</div>									
+								</div>
+								</a>									
 								<div class="dropdown">
-								  <a class="btn border-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								  <a class="btn border-0 dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								    <span class=name>${currentAccount.hoKH} ${currentAccount.tenKH}</span>
 								  </a>
 								
 								  <ul class="dropdown-menu">
-								    <li><a class="dropdown-item" href="#">Quản Lý Tài Khoản</a></li>
+								    <li><a class="dropdown-item" href="/guest">Quản Lý Tài Khoản</a></li>
 								    <li><a class="dropdown-item" href="/car/logout">Đăng Xuất</a></li>
 								  </ul>
 								</div>

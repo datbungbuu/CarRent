@@ -30,7 +30,11 @@
 							<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Thống Kê Hợp Đồng</h1>
 								<div class="row">
 									<div class="col-sm-6">
-											<div class="dropdown mb-2">
+								
+								<!-- xuất ex -->
+								<div class="d-flex flex-row mb-3">
+								  <div class="p-2">
+								  	<div class="dropdown mb-2">
 								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 								    Trạng thái hợp đồng
 								  </button>
@@ -48,6 +52,11 @@
 								      <li><a class="dropdown-item btn btn-outline-success" href="/lstthdnull"  >Chưa xử lý</a></li>
 									  <li><a class="dropdown-item btn btn-outline-success" href="/lstthd" >Đã xử lý</a></li>
 									  </ul>
+								</div>
+								  </div>
+								  <div class="p-2">
+								  	<a class="btn btn-outline-primary" href="/car/listHD/export">Export To Excel</a>
+								  </div>
 								</div>
 									</div>
 									
@@ -72,12 +81,12 @@
 									      <th>Trạng Thái</th>
 									      <th>Nhân Viên</th>
 									      <th>Khách Hàng </th>
-									      <th>biến số xe</th>
+									      <th>Biến Số Xe</th>
 										  <th>Tên Xe</th>
-										  <th>Ngày bắt đầu </th>
-										  <th>Ngày ngày kết thúc </th>
-										  <th>Ngày ngày tạo</th>
-										  <th>Ngày tổng tiền </th>
+										  <th>Ngày Bắt Đầu </th>
+										  <th>Ngày Kết Thúc </th>
+										  <th>Ngày Tạo</th>
+										  <th>Tổng Tiền </th>
 										  
 										  
 									    </tr>
@@ -169,3 +178,28 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

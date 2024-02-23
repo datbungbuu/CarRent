@@ -112,7 +112,7 @@
 						      <div class="accordion-body">
 						      	<ul class="list-group p-0" style="cursor: pointer;">					
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Danh Sách Xe Đã Bàn Giao</a>
+									 	<a href="/car/Listgiaoxe" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Danh Sách Xe Đã Bàn Giao</a>
 									 </li>
 									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
 									 	<a href="/car/listTraXe" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-thumbs-up"></i> Danh Sách Xe Đã Nhận</a>
