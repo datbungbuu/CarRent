@@ -20,11 +20,11 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0" style="background-image: url('/img/bgimg2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center;"  >
+	<div class="col-sm-10 pe-0" style="background-image: url('/img/ad-bg1.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center bottom;"  >
 	<%-- <%@include file = "/common/nav.jsp" %> --%>
 		
 		
-			<div class="row justify-content-between mt-5 ms-2 me-2"  >
+			<!-- <div class="row justify-content-between mt-5 ms-2 me-2"  >
 			
 			
 					<div class="card text-center" style="width: 20rem;">
@@ -73,18 +73,14 @@
 				    <a href="/car/report" class="btn btn-warning"> Thống Kê Hợp Đồng </a>
 				    
 				   	 
-				    <!-- <a href="/car/list" class="btn btn-warning"> List Car </a> -->
+				    <a href="/car/list" class="btn btn-warning"> List Car </a>
 				
 				    
 				    </div>
 				    
 				  </div>
-				</div>
-				
-				
-					
-				
-			</div>
+				</div>			
+			</div> -->
 		
 	</div>
 	

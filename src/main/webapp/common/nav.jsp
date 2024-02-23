@@ -8,7 +8,7 @@
         <li class="nav-item " >
         	<c:choose>
 				<c:when test="${not empty  nvAccount}">
-					<p class="card-text fs-4 fw-bold" style="font-size: 12px">Xin Chào ${nvAccount.tenNV}</p>
+					<p class="card-text fs-4 fw-bold" style="font-size: 12px">Xin Chào ${nvAccount.maNV}</p>
 				</c:when>
 				<c:otherwise>
 					<p class="card-text" style="font-size: 12px">Xin Chào</p>

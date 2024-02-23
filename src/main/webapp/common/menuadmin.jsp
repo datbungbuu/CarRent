@@ -53,29 +53,29 @@
 						    </div>
 						</div>
 					  
-						<!-- Thống Kê -->
-						<div class="accordion-item" style="background: #289d8c; color: white;">
-						    <h2 class="accordion-header" style="background: #289d8c; color: white;">
-						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" style="background: #289d8c; color: white;">
-						        <i class="fa-solid fa-bars me-1"></i> Thống Kê</li>
-						      </button>
-						    </h2>
-						    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-						      <div class="accordion-body">
-						      	<ul class="list-group p-0" style="cursor: pointer;">					
-									 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="/car/report" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Thống kê hợp đồng</a>
-									 </li>
-									
-									 
-									 
-									 <%-- <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-									 	<a href="<c:url value='/report?action=view'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-solid fa-share-nodes"></i> SHARED FRIENDS</a>
-									 </li> --%>
-								 </ul>	
-						      </div>
-						    </div>
-						</div>
+					  	<!-- Thống Kê -->
+					  	<c:choose>
+							<c:when test="${nvAccount.chucVu == true }">
+								<div class="accordion-item" style="background: #289d8c; color: white;">
+								    <h2 class="accordion-header" style="background: #289d8c; color: white;">
+								      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" style="background: #289d8c; color: white;">
+								        <i class="fa-solid fa-bars me-1"></i> Thống Kê</li>
+								      </button>
+								    </h2>
+								    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+								      <div class="accordion-body">
+								      	<ul class="list-group p-0" style="cursor: pointer;">					
+											 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
+											 	<a href="/car/report" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Thống kê hợp đồng</a>
+											 </li>
+										 </ul>	
+								      </div>
+								    </div>
+								</div>
+							</c:when>
+						</c:choose>
+						
+						
 						
 						<!-- Quản Lý Hợp Đồng -->
 						<div class="accordion-item" style="background: #289d8c; color: white;">
