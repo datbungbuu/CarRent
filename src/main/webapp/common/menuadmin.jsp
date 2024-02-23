@@ -59,7 +59,7 @@
 				      <div class="accordion-body">
 				      	<ul class="list-group p-0" style="cursor: pointer;">					
 							 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
-							 	<a href="<c:url value='report_fav'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> FAVOURITES</a>
+							 	<a href="/car/report" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-heart"></i> Hãng Xe</a>
 							 </li>
 							 <li class="list-group-item ms-auto me-auto mt-2 mb-2 border-0"  style="background: #289d8c; color: white;">
 							 	<a href="<c:url value='report_title'/>" class="btn"type="button" style="font-size: 14px; color: white"><i class="fa-regular fa-thumbs-up"></i> FAVOURITE USERS</a>
