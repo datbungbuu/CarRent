@@ -18,10 +18,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "nhanxe")
+@Table(name = "giaoxe")
 @Data
 @NoArgsConstructor
-public class NhanXe implements Serializable{
+public class GiaoXe implements Serializable{
 	// mã nhận xe, tự tăng
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +49,22 @@ public class NhanXe implements Serializable{
 	
 	@Column(name = "noidung", nullable = false)
 	private String noiDung;
+	
+	// tên tệp hình đầu xe
+		@Column(name = "imgdauxe")
+		private String imgDauXe;
+
+		// tên tệp hình đuôi xe
+		@Column(name = "imgduoixe")
+		private String imgDuoiXe;
+
+		// tên tệp hình sườn phải xe
+		@Column(name = "imgsuonpxe")
+		private String imgSuonPXe;
+
+		// tên tệp hình sườn trái xe
+		@Column(name = "imgsuontxe")
+		private String imgSuonTXe;
 	
 	@OneToOne 
 	@JoinColumn(name = "mahd")

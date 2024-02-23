@@ -2,6 +2,7 @@ package com.asm.controller;
 
 import java.util.List;
 
+import org.eclipse.angus.mail.handlers.text_xml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,63 +12,61 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.dao.HopDongDAO;
-import com.asm.dao.GiaoXeDAO;
 import com.asm.dao.XeDAO;
+import com.asm.dao.lsTraXeDAO;
 import com.asm.entity.HopDong;
-import com.asm.entity.GiaoXe;
 import com.asm.entity.Xe;
-import com.asm.service.SessionService;
-
-
+import com.asm.entity.lsTraXe;
 
 @Controller
-public class GiaoXeController {
+public class qlTraXeController {
 	
 	@Autowired
-	SessionService session;
+	lsTraXeDAO lsDAO;
+	
 	@Autowired
 	HopDongDAO hopDongDAO;
+	
 	@Autowired
 	XeDAO xeDAO;
-	@Autowired
-	GiaoXeDAO NXDAO;
-	
-	@RequestMapping("/car/giaoxe")
+
+	@RequestMapping("/car/qlTraXe")
 	public String qllsTraXe(Model model) {
-		GiaoXe nxe = new GiaoXe();
-		model.addAttribute("giaoxemodel",nxe);
-		return "giaoxe/bbgiaoxe";
+		lsTraXe lsTX = new lsTraXe();
+		model.addAttribute("traxemodel",lsTX);
+		return "TraXe/qlTraXe";
 	}
-	@RequestMapping("/car/giaoxe/add")
-	public String qlTraxeAdd(Model model, @ModelAttribute("giaoxemodel")GiaoXe giaoxeone, @RequestParam("id") Integer maHD) {
+	
+	@RequestMapping("/car/qlTraXe/add")
+	public String qlTraxeAdd(Model model, @ModelAttribute("traxemodel")lsTraXe txone, @RequestParam("id") Integer maHD) {
 		
 		boolean flag = true;
 		
-		if(giaoxeone.getNgayGiaoXe() == null || giaoxeone.getNgayGiaoXe().equals("")) {
+		if(txone.getNgayNhanxe() == null || txone.getNgayNhanxe().equals("")) {
 			model.addAttribute("errorMessageD", "Vui lòng nhập ngày!");
 			flag = false;
 		}
-		if(giaoxeone.getGiayToXe() == null || giaoxeone.getGiayToXe().equals("")) {
+		if(txone.getGiayToxe() == null || txone.getGiayToxe().equals("")) {
 			model.addAttribute("errorMessageG", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
-		if(giaoxeone.getTinhTrang() == null || giaoxeone.getTinhTrang().equals("")) {
+		if(txone.getTinhTrang() == null || txone.getTinhTrang().equals("")) {
 			model.addAttribute("errorMessageT", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
-		if(giaoxeone.getNgoaiThat() == null || giaoxeone.getNgoaiThat().equals("")) {
+		if(txone.getNgoaiThat() == null || txone.getNgoaiThat().equals("")) {
 			model.addAttribute("errorMessageNN", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
-		if(giaoxeone.getNoiThat() == null || giaoxeone.getNoiThat().equals("")) {
+		if(txone.getNoiThat() == null || txone.getNoiThat().equals("")) {
 			model.addAttribute("errorMessageNT", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
-		if(giaoxeone.getDongCo() == null || giaoxeone.getDongCo().equals("")) {
+		if(txone.getDongCo() == null || txone.getDongCo().equals("")) {
 			model.addAttribute("errorMessageDC", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
-		if(giaoxeone.getNoiDung() == null || giaoxeone.getNoiDung().equals("")) {
+		if(txone.getNoiDung() == null || txone.getNoiDung().equals("")) {
 			model.addAttribute("errorMessageND", "Vui lòng không bỏ trống!");
 			flag = false;
 		}
@@ -78,34 +77,35 @@ public class GiaoXeController {
 		
 		if(flag == false) {
 			model.addAttribute("hd", hopdong);
-			return "giaoxe/bbgiaoxe";
+			return "TraXe/qlTraXe";
 		}else {
-			giaoxeone.setHopDong(hopdong);
-			xe.setTrangThai(true);
+			txone.setHd(hopdong);
+			xe.setTrangThai(false);
 			
 			xeDAO.save(xe);
-			NXDAO.save(giaoxeone);
+			lsDAO.save(txone);
 						
-			List<GiaoXe> nxe = NXDAO.findAll();
-			model.addAttribute("dsnxe", nxe);
-			return "redirect:/car/Listgiaoxe";
+			List<lsTraXe> lsTX = lsDAO.findAll();
+			model.addAttribute("dsTraXe", lsTX);
+			return "redirect:/car/listTraXe";
 		}
 		
 		
 	}
 	
-	@RequestMapping("/car/giaoxe/edit/{id}")
+	@RequestMapping("/car/qlTraXe/edit/{id}")
 	public String edit(Model model, @PathVariable("id") Integer id) {		
-		GiaoXe nxe = new GiaoXe();
+		lsTraXe lsTX = new lsTraXe();
 		HopDong hopdong = hopDongDAO.findById(id).get();
-		model.addAttribute("giaoxemodel",nxe);
+		model.addAttribute("traxemodel",lsTX);
 		model.addAttribute("hd", hopdong);
-		return "giaoxe/bbgiaoxe";
+		return "TraXe/qlTraXe";
 	}
-	@RequestMapping("/car/Listgiaoxe")
+	
+	@RequestMapping("/car/listTraXe")
 	public String listTraXe(Model model) {
-		List<GiaoXe> nxe  = NXDAO.findAll();
-		model.addAttribute("dsnxe", nxe );
-		return "giaoxe/Listgiaoxe";
+		List<lsTraXe> lsTX = lsDAO.findAll();
+		model.addAttribute("dsTraXe", lsTX);
+		return "TraXe/listTraXe";
 	}
 }

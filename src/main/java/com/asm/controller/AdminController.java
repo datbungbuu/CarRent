@@ -25,8 +25,11 @@ import com.asm.dao.XeDAO;
 import com.asm.entity.HangXe;
 import com.asm.entity.LoaiXe;
 import com.asm.entity.NhanVien;
+import com.asm.entity.Report;
 import com.asm.entity.TruSo;
 import com.asm.entity.Xe;
+
+
 
 @Controller
 public class AdminController {
@@ -63,6 +66,12 @@ public class AdminController {
 		car.setTenXe("");
 		car.setGiaThue(null);
 		car.setMoTa("");
+		car.setSoCho(null);
+		car.setTruyenDong(null);
+		car.setImgDauXe("");
+		car.setImgDuoiXe("");
+		car.setImgSuonPXe("");
+		car.setImgSuonTXe("");
 	}
 
 	public void ClearFormStaff(@ModelAttribute("staffmodel") NhanVien staff) {
@@ -168,19 +177,75 @@ public class AdminController {
 	public String addCar(Model model, @ModelAttribute("carmodel") Xe car) {
 		boolean flag = true;
 		boolean ktBS = car.getBienSo().matches(BS_Vali);
-
+		
+//		check bản số
 		if (!ktBS == true) {
 			model.addAttribute("errorMessageBS", "Nhập BS hợp lệ!");
 			flag = false;
 		}
-
+		if(car.getBienSo() == null ||  car.getBienSo().equals("")) {
+			model.addAttribute("errorMessageTX", "Vui lòng nhập bản số!");
+			flag = false;
+		}
+		
+//		check tên xe
+		if(car.getTenXe() == null ||  car.getTenXe().equals("")) {
+			model.addAttribute("errorMessageBS", "Vui lòng nhập tên xe!");
+			flag = false;
+		}
+//		check giá xe
+		if(car.getGiaThue() == null ||  car.getGiaThue().equals("")) {
+			model.addAttribute("errorMessageGX", "Vui lòng nhập giá thuê!");
+			flag = false;
+		}
+//		check số chỗ
+		if(car.getSoCho() == null ) {
+			model.addAttribute("errorMessageSC", "Vui lòng chọn số chỗ!");
+			flag = false;
+		}
+//		check truyền  động
+		if(car.getTruyenDong() == null ) {
+			model.addAttribute("errorMessageTD", "Vui lòng chọn truyền động!");
+			flag = false;
+		}
+//		check nhiên liệu tiêu hao
+		if(car.getNlTieuHao() == null || car.getNlTieuHao().equals("") ) {
+			model.addAttribute("errorMessageNLTH", "Vui lòng nhập nhiên liệu tiêu hao!");
+			flag = false;
+		}
+//		check tiện nghi
+		if(car.getTienNghi() == null || car.getTienNghi().equals("") ) {
+			model.addAttribute("errorMessageTN", "Vui lòng nhập các tiện nghi!");
+			flag = false;
+		}
+//		check ảnh đầu xe
+		if(car.getImgDauXe() == null || car.getImgDauXe().equals("")  ) {
+			model.addAttribute("errorMessageDX", "Bạn chưa chọn ảnh đầu xe!");
+			flag = false;
+		}
+		if(car.getImgDuoiXe() == null || car.getImgDuoiXe().equals("") ) {
+			model.addAttribute("errorMessageDUX", "Bạn chưa chọn ảnh đuôi xe!");
+			flag = false;
+		}
+		if(car.getImgSuonPXe() == null || car.getImgSuonPXe().equals("") ) {
+			model.addAttribute("errorMessageSPX", "Bạn chưa chọn ảnh sườn phải xe!");
+			flag = false;
+		}
+		if(car.getImgSuonTXe() == null || car.getImgSuonTXe().equals("") ) {
+			model.addAttribute("errorMessageSTX", "Bạn chưa chọn ảnh sườn trái xe!");
+			flag = false;
+		}
+		
+		
+		
 		if (flag == true) {
 			if (!xedao.existsById(car.getBienSo())) {
 				xedao.save(car);
+				
 				ClearForm(car);
 				System.out.println("thêm thành công");
 			} else {
-				throw new RuntimeException("mã này đã tồn tại");
+				model.addAttribute("errorMessageBS", "Biển số đã tồn tại!");
 			}
 
 			return "addcar";
@@ -401,5 +466,13 @@ public class AdminController {
 
 		return "staff/liststaff";
 	}
+	
+//	report loại xe
+//	@RequestMapping("/car/report")
+//	public String report(Model model) {
+//		List<Report> rps = xedao.getReportByHangXe();
+//		model.addAttribute("reports",rps);
+//		return "report";
+//	}
 
 }

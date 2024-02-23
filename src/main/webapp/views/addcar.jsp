@@ -33,18 +33,38 @@
 											<div class="mb-3">
 											    <label class="form-label">Đầu xe</label>
 											    <input type="file" class="form-control" name="imgDauXe" >
+											      <div class="form-error ${errorMessageDX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageDX}</>
+													</span>								
+													</div>
 											 </div>	
 											 <div class="mb-3">
 											    <label class="form-label">Sườn trái</label>
 											    <input type="file" class="form-control" name="imgSuonTXe" >
+											      <div class="form-error ${errorMessageSTX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageSTX}</>
+													</span>								
+													</div>
 											 </div>	
 											 <div class="mb-3">
 											    <label class="form-label">Sườn phải</label>
 											    <input type="file" class="form-control" name="imgSuonPXe" >
+											      <div class="form-error ${errorMessageSPX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageSPX}</>
+													</span>								
+													</div>
 											 </div>	
 											 <div class="mb-4">
 											    <label class="form-label">Đuôi  xe</label>
 											    <input type="file" class="form-control" name="imgDuoiXe" >
+											      <div class="form-error ${errorMessageDUX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageDUX}</>
+													</span>								
+													</div>
 											 </div>	
 											 
 											 <div class="mt-3">
@@ -74,6 +94,11 @@
 											    <label class="form-label">Tên Xe</label>
 											    <form:input type="text" class="form-control" path="tenXe"/>
 											    <!-- <input type="text" class="form-control" name="id" > -->
+											    <div class="form-error ${errorMessageTX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageTX}</>
+													</span>								
+												</div>
 											    </div>
 											 </div>	
 											 
@@ -111,6 +136,11 @@
 											    <label class="form-label">Giá Thuê</label>
 											   <!--  <input type="text" class="form-control" name="poster" > -->
 											    <form:input path="giaThue" class="form-control"/>
+											    <div class="form-error ${errorMessageGX==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageGX}</>
+													</span>								
+												</div>
 											 </div>
 											 
 											 <div class="row">
@@ -131,6 +161,11 @@
 											  <form:radiobutton path="soCho" value="7" delimiter="" class="form-check-input checked"/>
 											  <label class="form-check-label" >7 chỗ</label>
 											</div>
+											<div class="form-error ${errorMessageSC==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageSC}</>
+													</span>								
+												</div>
 											 </div>
 											 	</div>
 											 	
@@ -145,6 +180,11 @@
 												<div class="form-check form-check-inline">
 												  <form:radiobutton path="truyenDong" value="Số Sàn" delimiter="" class="form-check-input"/>
 												  <label class="form-check-label" >Số Sàn</label>
+												</div>
+												<div class="form-error ${errorMessageTD==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageTD}</>
+													</span>								
 												</div>
 												 </div>
 											 	</div>
@@ -173,6 +213,11 @@
 											    <label class="form-label">Nhiên Liệu Tiêu Hao</label>
 											   <!--  <input type="text" class="form-control" name="NLTieuHao" > -->
 											   <form:input path="nlTieuHao"  class="form-control"/>
+											   <div class="form-error ${errorMessageNLTH==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageNLTH}</>
+													</span>								
+												</div>
 												 </div>
 											 	</div>
 											 </div>
@@ -191,9 +236,14 @@
 											 	
 											 	<div class="col-sm-6">
 												 	<div class="mb-3">
-												    <label class="form-label">Tiện Ích</label>
+												    <label class="form-label">Tiện Nghi</label>
 												    <!-- <input type="text" class="form-control" name="poster" > -->
 												    <form:input type="text" path="tienNghi" class="form-control" />
+												    <div class="form-error ${errorMessageTN==null?'d-lg-none':'' }">
+													<span class="error-item1">
+														<p><i class="fa-solid fa-xmark" style="color: #e91c1c;"></i> ${errorMessageTN}</>
+													</span>								
+													</div>
 													 </div>
 											 	</div>
 											 	

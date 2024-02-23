@@ -76,6 +76,6 @@ public class HopDong {
 	
 	@ManyToOne
 	@JoinColumn(name = "manhanxe")
-	private NhanXe nhanXe;
+	private GiaoXe giaoXe;
 
 }
