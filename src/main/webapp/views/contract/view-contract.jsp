@@ -40,10 +40,10 @@
 <body class="container">
 	<div class="mt-5 mb-5 d-flex justify-content-evenly">
 		<div>
-			<a class="btn btn-primary" href="/contract/confirm">Đồng ý</a>
+			<a class="btn btn-primary" href="/contract/add-user?id=${idContract }">Đồng ý</a>
 		</div>
 		<div>
-			<a class="btn btn-primary" href="/car/index">Về trang chủ</a>
+			<a class="btn btn-primary" href="/contract/list-re-contract">Về danh sách</a>
 		</div>
 	</div>
 	<div id="source-html">
