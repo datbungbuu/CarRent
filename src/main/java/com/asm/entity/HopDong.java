@@ -73,5 +73,9 @@ public class HopDong {
 	@ManyToOne
 	@JoinColumn(name = "makh")
 	private KhachHang khachHang;
+	
+	@ManyToOne
+	@JoinColumn(name = "manhanxe")
+	private NhanXe nhanXe;
 
 }
