@@ -68,11 +68,18 @@ public class HopDongController {
 		return "redirect:/car/index";
 	}
 
-	@RequestMapping("list-re-contract")
-	public String listReContract(Model model) {
+	@RequestMapping("list-pre-contract")
+	public String listPreContract(Model model) {
 		List<HopDong> list = hopDongDAO.findByNhanVienIsNull();
 		model.addAttribute("listContract", list);
-		return "contract/list-re-contract";
+		return "contract/list-pre-contract";
+	}
+	
+	@RequestMapping("list-post-contract")
+	public String listPostContract(Model model) {
+		List<HopDong> list = hopDongDAO.findByNhanVienIsNotNull();
+		model.addAttribute("listContract", list);
+		return "contract/list-post-contract";
 	}
 	
 	@RequestMapping("view-contract")
