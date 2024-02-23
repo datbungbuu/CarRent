@@ -1,6 +1,7 @@
 package com.asm.controller;
 
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,6 +35,8 @@ import com.asm.entity.NhanVien;
 import com.asm.entity.Report;
 import com.asm.entity.TruSo;
 import com.asm.entity.Xe;
+import com.asm.entity.lsTraXe;
+import com.asm.helper.excelHelper;
 import com.asm.service.SessionService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -554,5 +557,14 @@ public class AdminController {
 		session.removeAttribute("nvAccount");
 		session.removeAttribute("security-uri");
 		return "redirect:/car/login";
+	}
+	
+// xuất ex	
+	@RequestMapping("/car/listHD/export")
+	public String xuatExcel(Model model) throws IOException {
+		List<HopDong> lsHD = hddao.findAll();
+		excelHelper.exportlsDoanhThu(lsHD);
+		model.addAttribute("reports", lsHD);
+		return "staff/report";
 	}
 }

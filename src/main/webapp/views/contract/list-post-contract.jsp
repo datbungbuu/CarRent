@@ -35,9 +35,8 @@
 					      <th scope="col">Ngày kết thúc</th>
 					      <th scope="col">Thành tiền</th>
 					      <th scope="col">Nhân viên</th>
-					      <th scope="col"><i class="fa-solid fa-gear">Giao</i></th>
-					      <th scope="col"><i class="fa-solid fa-gear">Nhận</i></th>
-					    </tr>
+					      <th scope="col" colspan="2"><i class="fa-solid fa-gear"></i></th>
+					      </tr>
 					</thead>
 					<tbody>
 					 <c:forEach items="${listContract}" var="item">
@@ -49,11 +48,11 @@
 						  <td>${item.ngayTao}</td>
 						  <td>${item.giaThue/1000} nghìn</td>
 						  <td>${item.ngayBatDau}</td>
-						  <td>${item.ngayKetThuc}</td>
+						  <td>${item.ngayKetThuc}</td>a
 						  <td>${item.tongTien/1000000} triệu </td>
 						  <td>${item.nhanVien.maNV}</td>
-						  <td> <a href="/car/giaoxe/edit/${item.maHopDong }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
-					      <td> <a href="/car/qlTraXe/edit/${item.maHopDong }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
+						  <td> <a href="/car/giaoxe/edit/${item.maHopDong }" class="text-decoration-none">Giao</a> </td>
+					      <td> <a href="/car/qlTraXe/edit/${item.maHopDong }" class="text-decoration-none">Nhận</a> </td>
 					    </tr>
 					</c:forEach>	 	  
 					</tbody>
