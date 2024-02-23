@@ -24,8 +24,8 @@
 			<%@include file = "/common/nav.jsp" %>		
 				<div class="row justify-content-center m-0" >
 					<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Nhận Bàn Giao Xe</h1>								
-						<!-- drop sort -->
-					<div class="dropdown mb-2">
+					<!-- drop sort -->
+					<!-- <div class="dropdown mb-2">
 					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 					    Sắp Xếp
 					  </button>
@@ -34,30 +34,32 @@
 					    <li><a class="dropdown-item" href="/car/sort?field=trangThai">Theo Trạng Thái</a></li>
 					    <li><a class="dropdown-item" href="/car/sort?field=hangXe">Theo Hãng</a></li>
 					  </ul>
-					</div>
+					</div> -->
 						
 					<div style="height:  600px; overflow-y: scroll;">
 						<table class="table table-bordered text-center">
 							<thead>
 							    <tr>
-							      <th scope="col">Ngày Nhận Xe</th>
-							      <th scope="col">Nội Dung Bàn Giao</th>
-							      <th scope="col">Tình Trạng Xe</th>
-							      <th scope="col">Ngoại Thất Xe</th>
-							      <th scope="col">Nội Thất Xe</th>
-							      <th scope="col">Động Cơ Xe</th>
-							      <th scope="col">Giấy Tờ Bàn Giao</th>
-							      <th scope="col">Hình Ảnh 1</th>
-							      <th scope="col">Hình Ảnh 2</th>
-							      <th scope="col">Hình Ảnh 3</th>
-							      <th scope="col">Hình Ảnh 4</th>
-							      <th scope="col">Hình Ảnh </th>
-							      <th scope="col"><i class="fa-solid fa-gear"></i></th>
+							      <th>Mã Hợp Đồng</th>
+							      <th>Ngày Nhận Xe</th>
+							      <th >Nội Dung Bàn Giao</th>
+							      <th >Tình Trạng Xe</th>
+							      <th >Ngoại Thất Xe</th>
+							      <th >Nội Thất Xe</th>
+							      <th >Động Cơ Xe</th>
+							      <th >Giấy Tờ Bàn Giao</th>
+							      <th >Hình Ảnh 1</th>
+							      <th >Hình Ảnh 2</th>
+							      <th >Hình Ảnh 3</th>
+							      <th >Hình Ảnh 4</th>
+							      <th >Nhân Viên</th>
+							      <!-- <th scope="col"><i class="fa-solid fa-gear"></i></th> -->
 							    </tr>
 							</thead>
 							<tbody>
 							<c:forEach items="${dsTraXe}" var="item">
 							    <tr>
+							      <td>${item.hd.maHopDong}</td> 
 							      <td>${item.ngayNhanxe}</td>
 							      <td>${item.noiDung}</td>
 								  <td>${item.tinhTrang}</td>
@@ -69,7 +71,8 @@
 								  <td>${item.imgDuoiXe} </td>
 								  <td>${item.imgSuonPXe}</td>
 								  <td>${item.imgSuonTXe}</td>
-								  <td>${item.hd.maHopDong}</td> 															      
+								  <td>${item.hd.nhanVien.maNV}</td>
+								  															      
 							    </tr>
 							</c:forEach>		  
 							</tbody>

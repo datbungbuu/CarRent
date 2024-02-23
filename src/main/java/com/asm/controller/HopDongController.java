@@ -114,6 +114,6 @@ public class HopDongController {
 		NhanVien nhanVien = session.getAttribute("nvAccount");
 		hopDong.setNhanVien(nhanVien);
 		hopDongDAO.save(hopDong);
-		return "redirect:/contract/list-re-contract";
+		return "redirect:/contract/list-pre-contract";
 	}
 }

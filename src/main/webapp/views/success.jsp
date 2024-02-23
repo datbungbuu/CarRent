@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td>
-                <p>Tên: [Tên của bên cho thuê]</p>
+                <p>Tên: CarRent Company</p>
                 <p>Địa chỉ: ${addressA }</p>
                 <p>Số điện thoại: ${phoneNumberA }</p>
                 <p>Email: ${emailAddressA }</p>

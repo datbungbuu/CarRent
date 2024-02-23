@@ -20,7 +20,7 @@
 	<div class="col-sm-10 pe-0">
 	<%@include file = "/common/nav.jsp" %>
 		<div class="row justify-content-center m-0" >
-			<h1 class="text-center mt-3 mb-3" style="color: #289d8c">LIST CONTRACT</h1>
+			<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Hợp Đồng</h1>
 			<div style="height:  600px; overflow-y: scroll;">
 				<table class="table table-bordered text-center">
 					<thead>
@@ -51,7 +51,7 @@
 						  <td>${item.ngayKetThuc}</td>
 						  <td>${item.tongTien/1000000} triệu </td>
 						  <td>${item.nhanVien.maNV}</td>
-					      <td> <a href="/contract/view-contract?id=${item.maHopDong }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
+					      <td> <a href="/car/qlTraXe/edit/${item.maHopDong }" class="text-decoration-none"><i class="fa-solid fa-pencil"></i></a> </td>
 					    </tr>
 					</c:forEach>	 	  
 					</tbody>
