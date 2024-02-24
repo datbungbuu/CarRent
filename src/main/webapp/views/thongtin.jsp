@@ -467,14 +467,7 @@
                                         href="">Hướng dẫn thanh&nbsp;toán</a><a
                                         href="">Hỏi và trả&nbsp;lời</a></div>
                             </div>
-                            <div class="item">
-                                <p class="main empty">&nbsp;</p>
-                                <div class="item-sub">
-                                <a href="/cả/logout">Đăng xuất</a>
-                                <a href=""></a>
-                                <a href=""></a>
-                            </div>
-                            </div>
+                            
                             <div class="item unset">
                                 <p class="main">Đối Tác</p>
                                 <div class="item-sub"><a href="">Đăng ký chủ&nbsp;xe

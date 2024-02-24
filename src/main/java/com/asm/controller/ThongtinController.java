@@ -41,7 +41,7 @@ public class ThongtinController {
 			@RequestParam("phoneNumber") String soDienThoai,
 			@RequestParam("email") String email
 				) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");		
 		
 		Boolean gender = true;
 		if (gioiTinh.equalsIgnoreCase("nữ") || gioiTinh.equalsIgnoreCase("nu")) {
