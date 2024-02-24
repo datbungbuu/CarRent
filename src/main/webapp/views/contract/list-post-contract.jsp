@@ -23,7 +23,7 @@
 	<%@include file = "/common/nav.jsp" %>
 		<div class="row justify-content-center m-0" >
 			<h1 class="text-center mt-3 mb-3" style="color: #289d8c">Danh Sách Hợp Đồng</h1>
-			<div style="height:  600px; overflow-y: scroll;">
+			<div style="height: 600px; overflow-y: scroll;">
 				<table class="table table-bordered text-center">
 					<thead>
 					    <tr>

@@ -147,7 +147,7 @@
 								<div class="car-item-detail">
 									<div class="c-detail-type">
 										<span class="type-item">Số tự động</span> <span
-											class="type-item-1">Giao Xe Tận Nơi</span>
+											class="type-item-1">${item.loaiXe.tenLoai}</span>
 									</div>
 									<div class="c-detail-name">
 										<p>${item.tenXe }</p>
@@ -155,16 +155,17 @@
 									</div>
 									<div class="c-detail-address">
 										<i class="fa-solid fa-location-dot" style="color: red"></i>
-										<p>Quận 1, Hồ Chí Minh</p>
+										<p>${item.truSo.duong}, ${item.truSo.xa}, ${item.truSo.huyen}, ${item.truSo.tinh}</p>
 									</div>
 									<div class="c-detail-line"></div>
 									<div class="c-detail-price">
 										<div class="price-info">
 											<i class="fa-solid fa-person-walking-luggage"></i> <span
-												class="num-trip">36 Chuyến</span>
+												class="num-trip">${item.hangXe.tenHang }</span>
 										</div>
 										<div class="price-warp">
-										 <span class="price-special">${item.giaThue }</span>
+										 	<c:set var="total" value="${item.giaThue}"></c:set>
+										 	<span class="price-special">${item.formatTien(total)}</span>
 										</div>
 									</div>
 								</div>

@@ -1,6 +1,8 @@
 package com.asm.entity;
 
+import java.text.NumberFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -98,4 +100,11 @@ public class Xe {
 	@JoinColumn(name = "mats")
 	private TruSo truSo;
 
+	public String formatTien(double tien) {
+		 Locale localeVN = new Locale("vi", "VN");
+		 NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+		 String temp = currencyVN.format(tien);
+		 return temp;
+	}
+	
 }
