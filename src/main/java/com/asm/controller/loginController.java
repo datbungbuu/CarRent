@@ -1,7 +1,6 @@
 package com.asm.controller;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -193,6 +192,7 @@ public class loginController {
 			if(flag == true) {
 				String encodedPW = wconfig.passwordEncoder().encode(kh.getMatKhau());
 				kh.setMatKhau(encodedPW);
+				kh.setHinhMatTruocGPLX("GPLXMT.jpg");
 				khDAO.save(kh);
 				return "redirect:/car/login";
 			}else {

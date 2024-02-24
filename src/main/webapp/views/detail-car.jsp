@@ -13,6 +13,7 @@
 <link href="css/main.chunk.css" rel="stylesheet">
 <link href="css/2.chunk.css" rel="stylesheet">
 <link href="/css/indexStyle.css" rel="stylesheet">
+<title>Thông tin xe cho thuê</title>
 </head>
 
 <body class="">

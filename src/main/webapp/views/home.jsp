@@ -7,9 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-  
- 
+<title>Car Rental</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -22,24 +20,24 @@
 	</div>	
 	
 	
-	<div class="col-sm-10 pe-0" style="background-image: url('/img/bgimg2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center;"  >
+	<div class="col-sm-10 pe-0" style="background-image: url('/img/ad-bg1.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center bottom;"  >
 	<%-- <%@include file = "/common/nav.jsp" %> --%>
 		
 		
-			<div class="row justify-content-between mt-5 ms-2 me-2"  >
+			<!-- <div class="row justify-content-between mt-5 ms-2 me-2"  >
 			
 			
 					<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Về Xe</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/add" class="btn btn-warning"> Quản Lý </a>
 				    
 				   	 
-				    <a href="/car/list" class="btn btn-warning"> List Car </a>
+				    <a href="/car/list" class="btn btn-warning"> Danh Sách  </a>
 				
 				    
 				    </div>
@@ -50,14 +48,14 @@
 				<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Về Nhân Viên</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/staff" class="btn btn-warning">Quản Lý </a>
 				    
 				   	 
-				    <a href="/car/list" class="btn btn-warning"> List Car </a>
+				    <a href="/car/liststaff" class="btn btn-warning"> Danh Sách  </a>
 				
 				    
 				    </div>
@@ -68,11 +66,11 @@
 				<div class="card text-center" style="width: 20rem;">
 				  <img src="/img/bwmcarhome.jpg" class="card-img-top mt-2 rounded " alt="...">
 				  <div class="card-body">
-				    <h3 class="card-title mb-5">Car Rent</h3>
+				    <h3 class="card-title mb-5">Thống Kê</h3>
 				    <p class="card-text"></p>
 				    <div class="d-flex justify-content-around">
 				   
-				    <a href="/car/add" class="btn btn-warning"> Add To Car </a>
+				    <a href="/car/report" class="btn btn-warning"> Thống Kê Hợp Đồng </a>
 				    
 				   	 
 				    <a href="/car/list" class="btn btn-warning"> List Car </a>
@@ -81,12 +79,8 @@
 				    </div>
 				    
 				  </div>
-				</div>
-				
-				
-					
-				
-			</div>
+				</div>			
+			</div> -->
 		
 	</div>
 	
