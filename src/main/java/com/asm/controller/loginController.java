@@ -192,6 +192,7 @@ public class loginController {
 			if(flag == true) {
 				String encodedPW = wconfig.passwordEncoder().encode(kh.getMatKhau());
 				kh.setMatKhau(encodedPW);
+				kh.setHinhMatTruocGPLX("GPLXMT.jpg");
 				khDAO.save(kh);
 				return "redirect:/car/login";
 			}else {

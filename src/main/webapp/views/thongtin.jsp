@@ -402,7 +402,7 @@
                             <div class="item">
                                 <p class="main empty">&nbsp;</p>
                                 <div class="item-sub">
-                                <a href="/cả/logout">Đăng xuất</a>
+                                <a href="/car/logout">Đăng xuất</a>
                                 <a href=""></a>
                                 <a href=""></a>
                             </div>
