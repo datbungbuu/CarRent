@@ -97,8 +97,15 @@ public class qlTraXeController {
 	
 	@RequestMapping("/car/qlTraXe/edit/{id}")
 	public String edit(Model model, @PathVariable("id") Integer id) {		
-		lsTraXe lsTX = new lsTraXe();
 		HopDong hopdong = hopDongDAO.findById(id).get();
+		lsTraXe lsTX = new lsTraXe();
+		try {
+			lsTX = lsDAO.findByHopDong(hopdong);
+		} catch (Exception e) {
+		}
+		if (lsTX == null) {
+			lsTX = new lsTraXe();
+		}
 		model.addAttribute("traxemodel",lsTX);
 		model.addAttribute("hd", hopdong);
 		return "TraXe/qlTraXe";

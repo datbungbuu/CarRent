@@ -99,8 +99,15 @@ public class GiaoXeController {
 	
 	@RequestMapping("/car/giaoxe/edit/{id}")
 	public String edit(Model model, @PathVariable("id") Integer id) {		
-		GiaoXe nxe = new GiaoXe();
 		HopDong hopdong = hopDongDAO.findById(id).get();
+		GiaoXe nxe = new GiaoXe();
+		try {
+			nxe = NXDAO.findByHopDong(hopdong);
+		} catch (Exception e) {
+		}
+		if (nxe == null) {
+			nxe = new GiaoXe();
+		}
 		model.addAttribute("giaoxemodel",nxe);
 		model.addAttribute("hd", hopdong);
 		return "giaoxe/bbgiaoxe";
