@@ -81,8 +81,9 @@ public class qlTraXeController {
 			model.addAttribute("hd", hopdong);
 			return "TraXe/qlTraXe";
 		}else {
-			txone.setHd(hopdong);
+			
 			xe.setTrangThai(false);
+			txone.setHd(hopdong);
 			
 			xeDAO.save(xe);
 			lsDAO.save(txone);

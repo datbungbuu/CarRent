@@ -19,6 +19,6 @@ public class AuthInterConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(auth)
 		.addPathPatterns("/car/**")
-		.excludePathPatterns("/car/index","/car/dsxe","/car/login/**","/car/register/**" ,"/car/forgotpassword/**","/car/logout","/car/**");
+		.excludePathPatterns("/car/index","/car/dsxe","/car/login/**","/car/register/**" ,"/car/forgotpassword/**","/car/logout");
 	}
 }

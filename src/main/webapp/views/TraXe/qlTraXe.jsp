@@ -21,7 +21,7 @@
 	
 	
 <div class="col-sm-10 pe-0 mt-5">
-	<%-- <%@include file = "/common/nav.jsp" %> --%>				
+	<%@include file = "/common/nav.jsp" %> 			
 	<form:form action="/car/qlTraXe/add" method="post" modelAttribute="traxemodel">
 		<div class="row mt-3 mb-3">
 			<div class="col-sm-6">				
